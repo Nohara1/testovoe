@@ -1,0 +1,16 @@
+@@if (context.in_stock || context.not_available || context.supplier || context.on_order) {
+<div class="availability">
+  @@if (context.in_stock) {
+  <span class="availability__item availability__item_in-stock">В наличии</span>
+  }
+  @@if (context.not_available) {
+  <span class="availability__item availability__item_not-available">Нет в наличии</span>
+  }
+  @@if (context.supplier) {
+  <span class="availability__item availability__item_supplier">Склад поставщика</span>
+  }
+  @@if (context.on_order) {
+  <span class="availability__item availability__item_on-order">Под заказ</span>
+  }
+</div>
+}

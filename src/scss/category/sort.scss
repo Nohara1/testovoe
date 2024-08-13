@@ -1,0 +1,68 @@
+.sort {
+  $items-gap: 40px;
+
+  display: flex;
+  position: relative;
+  margin-left: -$items-gap;
+
+  @extend %sort !optional;
+
+  &__filter-toggle-button {
+    display: none;
+
+    @media ($mobile-max) {
+      width: 100%;
+    }
+
+    @extend %sort-filter-toggle-button !optional;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__heading {
+    color: $dark;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: none;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__item {
+    margin-left: $items-gap;
+
+    @extend %sort-item !optional;
+
+    &_heading {
+      @extend %sort-heading !optional;
+    }
+    &_sort {
+      @extend %sort-sort !optional;
+    }
+    &_count {
+      @extend %sort-count !optional;
+    }
+    &_limit {
+      @extend %sort-limit !optional;
+    }
+    &_views {
+      @extend %sort-views !optional;
+    }
+  }
+  &__products-count {
+    color: $dark60;
+    font-size: 16px;
+    font-weight: 500;
+
+    @extend %sort-products-count !optional;
+
+    strong {
+      color: $dark; 
+      font-size: inherit;
+      margin-left: 10px;
+      font-weight: inherit;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.pagination {
+  @extend %pagination !optional;
+
+  text-align: center;
+
+  &__list {
+    @extend %flex-center;
+
+    justify-content: flex-end;
+
+    @media ($mobile-max) {
+      justify-content: center;
+    }
+  }
+  @at-root {
+    .page-item {
+      display: inline-block;
+
+      &.active {
+        @extend %pagination-active-item !optional;
+      }
+      &:first-child {
+        @extend %pagination-first-item !optional;
+      }
+      &:last-child {
+        @extend %pagination-last-item !optional;
+      }
+    }
+  }
+  @at-root {
+    .page-link {
+      color: $dark30;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      margin: 3px;
+      display: flex;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 500;
+      align-items: center;
+      border-radius: 3px;
+      text-decoration: none;
+      justify-content: center;
+      background-color: $dark10;
+
+      @media ($desktop-min) {
+        transition: color 0.2s;
+
+        &[href]:hover {
+          color: $dark;
+        }
+      }
+
+      // @media ($desktop-min) {
+      //   transform: scale(1);
+      //   transition: transform 0.2s;
+
+      //   &[href]:hover {
+      //     transform: scale(1.2);
+      //   }
+      // }
+      @media ($tablet-mad) {
+        font-size: 22px;
+      }
+
+      &:not([href]),
+      %pagination-active-item & {
+        color: $primary-color;
+        cursor: default;
+        pointer-events: none;
+        // background-color: $primary-color;
+        // text-decoration: underline;
+      }
+      %pagination-first-item & {
+        margin-right: 27px;
+
+        svg {
+          transform: scaleX(-1);
+        }
+      }
+      %pagination-last-item & {
+        margin-left: 27px;
+      }
+      %pagination-first-item &[href],
+      %pagination-last-item &[href] {
+        color: $dark;
+        // @media ($desktop-min) {
+        //   &:hover {
+        //     transform: scale(1.2);
+        //   }
+        // }
+        // @media ($tablet-mid) {
+        //   font-size: 14px;
+        //   font-weight: 400;
+        // }
+        @media ($mobile-max) {
+          // span {
+            display: none;
+          // }
+        }
+      }
+    }
+  }
+  .page-separator {
+    width: 40px;
+    color: $dark30;
+    border-width: 0;
+    background-color: transparent;
+  }
+  &__description-wrapper {
+    margin-top: 6px;
+  }
+  // &__description {
+  //   font-size: 13px;
+  //   font-weight: 300;
+  //   text-transform: uppercase;
+
+  //   @media ($mobile-max) {
+  //     font-size: 12px;
+  //   }
+  // }
+}

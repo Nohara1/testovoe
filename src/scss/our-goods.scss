@@ -1,0 +1,172 @@
+.our-goods {
+  overflow: hidden;
+
+  $buttons-gap: 10px;
+
+  // &__heading {}
+  &__filter {
+    @media ($desktop-min-xl) {
+      margin-left: calc(-1 * $container-padding-desktop - $buttons-gap);
+      margin-right: calc(-1 * $container-padding-desktop);
+      padding-left: $container-padding-desktop;
+      padding-right: $container-padding-desktop;
+    }
+    @media ($desktop-max) and ($tablet-min) {
+      margin-left: calc(-1 * $container-padding-tablet - $buttons-gap);
+      margin-right: calc(-1 * $container-padding-tablet);
+      padding-left: $container-padding-tablet;
+      padding-right: $container-padding-tablet;
+    }
+    @media ($mobile-max) {
+      margin-left: calc(-1 * $container-padding-mobile - $buttons-gap);
+      margin-right: calc(-1 * $container-padding-mobile);
+      padding-left: $container-padding-mobile;
+      padding-right: $container-padding-mobile;
+    }
+  }
+  &__button {
+    min-width: 0;
+    margin-left: 10px;
+  }
+  &__slider-wrapper {
+    margin-top: 1.875rem;
+  }
+  &__swiper {
+    padding: 0;
+    z-index: 1;
+    position: relative;
+    list-style: none;
+    transition: margin 0.3s;
+    margin-left: 0;
+    margin-right: 0;
+
+    &:not(&-initialized) {
+      @extend %our-goods-not-initialized !optional;
+    }
+    // &:not(.locked) {
+    //   @media ($desktop-min-xl) {
+    //     margin-left: $container-padding-desktop;
+    //     margin-right: $container-padding-desktop;
+    //   }
+    //   @media ($desktop-max) and ($tablet-min) {
+    //     margin-left: $container-padding-tablet;
+    //     margin-right: $container-padding-tablet;
+    //   }
+    //   @media ($mobile-max) {
+    //     margin-left: $container-padding-mobile;
+    //     margin-right: $container-padding-mobile;
+    //   }
+    // }
+  }
+  &__swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    position: relative;
+    box-sizing: content-box;
+  }
+  &__slide {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    flex-direction: column;
+    transition-property: transform;
+
+    @media ($tablet-mad) {
+      width: 260px;
+    }
+    %our-goods-not-initialized & {
+      @media ($desktop-min-xxl) {
+        width: 25%;
+      }
+      @media ($desktop-max-xl) and ($desktop-min) {
+        width: 33.3333%;
+      }
+      @media ($tablet-max) and ($tablet-mid) {
+        width: 50%;
+      }
+      @media ($tablet-mad) {
+        width: 260px;
+      }
+    }
+    &:not(&_show) {
+      display: none;
+    }
+  }
+  &__nav-btn {
+    top: 0;
+    color: $primary-color;
+    bottom: 0;
+    border: none;
+    opacity: 1;
+    padding: 0;
+    z-index: 10;
+    @extend %flex-center;
+    position: absolute;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+    user-select: none;
+    background-color: transparent;
+
+    @media ($desktop-min-xl) {
+      width: $container-padding-desktop;
+      min-width: $container-padding-desktop;
+    }
+    @media ($desktop-max) and ($tablet-min) {
+      width: $container-padding-tablet;
+      min-width: $container-padding-tablet;
+    }
+    @media ($tablet-max) {
+      display: none;
+    }
+    @media ($mobile-max) {
+      width: $container-padding-mobile;
+      min-width: $container-padding-mobile;
+    }
+
+    &:not(&_disabled):hover {
+      cursor: pointer;
+      @extend %og-nav-btn-hover !optional;
+    }
+    &_prev {
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(to left, transparent, $white);
+    }
+    &_next {
+      right: 0;
+      transform: translateX(100%);
+      background-image: linear-gradient(to right, transparent, $white);
+    }
+    &_lock {
+      // display: none;
+      color: $dark;
+      opacity: 0;
+      visibility: hidden;
+    }
+    &_disabled {
+      color: $dark60;
+      opacity: 0.5;
+    }
+  }
+  &__prev-icon {
+    transform: scaleX(-1);
+    transition: transform 0.2s;
+
+    %og-nav-btn-hover & {
+      transform: scaleX(-1) scale(1.15);
+    }
+  }
+  &__next-icon {
+    transform: scale(1);
+    transition: transform 0.2s;
+
+    %og-nav-btn-hover & {
+      transform: scale(1.15);
+    }
+  }
+  %product {
+    flex-grow: 1;
+  }
+}

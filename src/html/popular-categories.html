@@ -1,0 +1,23 @@
+<section class="popular-categories">
+  <div class="container">
+    <h2 class="popular-categories__heading heading">Популярные категории</h2>
+    <div class="popular-categories__items-wrapper">
+      <div class="popular-categories__items">
+        @@loop('./src/html/include/popular-categories-item.html', '../json/popular-categories.json')
+      </div>
+
+      <button class="popular-categories__nav-btn popular-categories__nav-btn_prev">
+        <svg class="popular-categories__prev-icon" width="20" height="10">
+          <use href="images/icons.svg#chevron-down" />
+        </svg>
+        <span class="sr-only">Предыдущая категория</span>
+      </button>
+      <button class="popular-categories__nav-btn popular-categories__nav-btn_next">
+        <svg class="popular-categories__next-icon" width="20" height="10">
+          <use href="images/icons.svg#chevron-down" />
+        </svg>
+        <span class="sr-only">Следующая категория</span>
+      </button>
+    </div>
+  </div>
+</section>

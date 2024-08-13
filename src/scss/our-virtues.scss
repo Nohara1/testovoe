@@ -1,0 +1,77 @@
+.our-virtues {
+  // &__heading {}
+  &__items {
+    @include row(2.5rem, 2.5rem);
+
+    @media ($mobile-max) {
+      @include row-breakpoint(30px, 10px);
+    }
+  }
+  &__item {
+    @media ($desktop-min-xl) {
+      flex: 1 1 25%;
+      max-width: 25%;
+    }
+    @media ($desktop-max) {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+  &__inner {
+    color: $grey;
+  }
+  // &__icon-wrapper {}
+  &__icon {
+    width: 3.125rem;
+    height: 3.125rem;
+    color: $primary-color;
+    min-width: 40px;
+    min-height: 40px;
+
+    // %inner-page & {
+    //   width: 3.3rem;
+    //   height: 3.3rem;
+    // }
+  }
+  &__content {
+    margin-top: 1.25rem;
+    border-top: 2px solid $dark10;
+    padding-top: 1.25rem;
+
+    %inner-page & {
+      border-width: 2px;
+    }
+  }
+  &__title {
+    color: $heading-color;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+
+    @media ($mobile-max) {
+      font-size: 16px;
+    }
+
+    %inner-page & {
+      font-weight: 600;
+    }
+  }
+  &__text {
+    color: $dark60;
+    margin-top: 1.25rem;
+    font-weight: 300;
+    line-height: 1.25;
+
+    @media ($tablet-max) {
+      font-size: 1.2rem;
+    }
+    @media ($mobile-max) {
+      font-size: 14px;
+    }
+
+    %inner-page & {
+      max-width: none;
+      line-height: 1.875;
+    }
+  }
+}

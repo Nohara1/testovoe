@@ -1,0 +1,41 @@
+.additional-links {
+  border: 1px solid $items-border;
+  margin: 0 auto;
+  max-width: 600px;
+  border-radius: 5px;
+
+  &__list-item {
+    &.active {
+      @extend %additional-links-active !optional;
+    }
+
+    & + & {
+      border-top: 1px solid $items-border;
+    }
+  }
+  &__link {
+    color: $primary-color;
+    display: block;
+    padding: 1em 2em;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: none;
+
+    %additional-links-active & {
+      color: $primary-hover;
+      background-color: $accent;
+    }
+
+    @media ($desktop-min) {
+      transition: color 0.3s;
+
+      &[href]:hover {
+        color: $primary-hover;
+      }
+    }
+    @media ($tablet-mad) {
+      font-size: 16px;
+    }
+  }
+}

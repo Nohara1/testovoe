@@ -1,0 +1,16 @@
+.custom-content {
+  margin: 4rem 0;
+
+  @extend %custom-content !optional;
+
+  @media ($tablet-max) {
+    margin: 2rem 0;
+  }
+
+  %inner-content & {
+    margin: 0;
+  }
+  & + *:not(&):not(.footer) {
+    padding-top: 0.55rem;
+  }
+}

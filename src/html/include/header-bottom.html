@@ -1,0 +1,86 @@
+<div class="header-bottom container">
+  <div class="header-bottom__item">
+    <nav class="header-bottom__links">
+      <ul class="header-bottom__links-list">
+        <li class="header-bottom__list-item _hover-to-open _hover-to-open--mobile-open">
+          <div class="header-bottom__buttons-wrapper">
+            <div class="header-bottom__catalog-burger">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <a href="catalog" class="header-bottom__link header-bottom__catalog">Каталог</a>
+            <button class="header__collapse-button _tablet-and-mobile-only" type="button" name="button-collapse">
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#arrow" />
+              </svg>
+              <span class="sr-only">Развернуть меню</span>
+            </button>
+          </div>
+          <div class="header-bottom__menu _hover-to-open__target">
+            @@include('./src/html/catalog.html')
+          </div>
+        </li>
+        <li class="header-bottom__list-item _hover-to-open">
+          <div class="header-bottom__buttons-wrapper">
+            <a href="/uslugi" class="header-bottom__link">Услуги</a>
+            <button class="header__collapse-button" type="button" name="button-collapse">
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#arrow"></use>
+              </svg>
+              <span class="sr-only">Развернуть меню</span>
+            </button>
+          </div>
+          <div class="header-bottom__menu _hover-to-open__target">
+            @@include('./src/html/catalog-uslugi.html')
+          </div>
+        </li>
+        <li class="header-bottom__list-item"><a href="/oplata-dostavka" class="header-bottom__link">Оплата и доставка</a></li>
+        <li class="header-bottom__list-item"><a href="/portfolio" class="header-bottom__link">Портфолио</a></li>
+        <li class="header-bottom__list-item"><a href="/baza-znaniy" class="header-bottom__link">База знаний</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header-bottom__item">
+    @@if(false){<div class="header-bottom__search">
+      <form class="search-form">
+        <label class="search-form__label">
+          <span class="sr-only">Поиск</span>
+          <input class="search-form__input header-search" type="search" name="header-search" placeholder="Поиск">
+        </label>
+        <button class="search-form__button" type="submit" name="header-search-button">
+          <svg class="search-form__button-icon" width="20" height="20" aria-hidden="true">
+            <use href="images/icons.svg#search" />
+          </svg><span class="sr-only">Search</span>
+        </button>
+      </form>
+    </div>}
+    <div class="header-bottom__features feature-buttons">
+      <div class="feature-buttons__item">
+        <button class="feature-buttons__link feature-buttons__cart" type="button" name="cart-button">
+          <span class="sr-only">Корзина</span>
+          <svg width="30" height="30" aria-hidden="true">
+            <use href="images/icons.svg#cart" />
+          </svg>
+          <i class="feature-buttons__number cart-count">5.36854</i>
+        </button>
+      </div>
+      <div class="feature-buttons__item">
+        <a class="feature-buttons__link feature-buttons__wishlist" href="/wishlist">
+          <span class="sr-only">Список желаемого</span>
+          <svg width="30" height="30" aria-hidden="true">
+            <use href="images/icons.svg#heart" />
+          </svg>
+          <i class="feature-buttons__number wishlist-count">10</i>
+        </a>
+      </div>
+      <div class="feature-buttons__item">
+        <a class="feature-buttons__link feature-buttons__comparison" href="/comparison">
+          <span class="sr-only">Список сравнения</span>
+          <svg width="30" height="30" aria-hidden="true">
+            <use href="images/icons.svg#comparison" />
+          </svg>
+          <i class="feature-buttons__number comparison-count">0</i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

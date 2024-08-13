@@ -1,0 +1,69 @@
+.category {
+  padding: 2.2rem 0 6.25rem;
+
+  @media ($mobile-max) {
+    padding: 0.6rem 0 2rem;
+  }
+
+  // &__header {}
+  // &__heading {}
+  // %popular {
+  //   margin-top: 3.125rem;
+  // }
+  %subcategories {
+    margin-bottom: 3.125rem;
+  }
+  &__sort {
+    margin-top: 3.125rem;
+
+    @media ($mobile-max) {
+      margin-top: 20px;
+    }
+
+    %sort {
+      align-items: center;
+    }
+    %sort-filter-toggle-button {
+      @media ($desktop-max) {
+        display: inline-block;
+      }
+    }
+    %sort-heading {
+      display: none;
+    }
+    %sort-sort {
+      margin-right: auto;
+    }
+    %sort-sort,
+    %sort-count,
+    %sort-limit {
+      @media ($desktop-max) {
+        display: none;
+      }
+    }
+    %form-item-heading {
+      color: $dark60;
+      font-size: 16px;
+      font-weight: 500;
+
+      // @media ($tablet-mad) {
+      //   font-size: 16px;
+      // }
+    }
+    %form-select {
+      color: $dark;
+      border: 0;
+      // font-weight: 600;
+
+      & option {
+        color: $text-color;
+        font-weight: 400;
+        background-color: transparent;
+      }
+
+      &:focus-visible {
+        @include focus-styles();
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.availability {
+  font-size: 14px;
+  line-height: 1;
+
+  // @media ($tablet-max) {
+  //   font-size: 13px;
+  // }
+
+  &__item {
+    display: flex;
+    font-size: inherit;
+    line-height: 1;
+    font-weight: 400;
+    align-items: center;
+    text-transform: uppercase;
+
+    &::before {
+      width: 0.714em;
+      height: 0.714em;
+      content: "";
+      display: inline-block;
+      margin-top: 0.1em;
+      flex-shrink: 0;
+      margin-right: 0.7143em;
+      border-radius: 50%;
+      background-color: currentColor;
+    }
+    &_in-stock {
+      color: #009229;
+    }
+    &_supplier {
+      color: #009229;
+    }
+    &_not-available {
+      color: $red;
+    }
+    &_on-order {
+      color: #976D00;
+    }
+  }
+
+  @extend %availability !optional;
+}

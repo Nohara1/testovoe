@@ -1,0 +1,88 @@
+.additional-info {
+  $additional-info-gap: 1.5rem;
+
+  max-width: 100%;
+  @extend %row-wrapper;
+
+  &__left-column {
+    flex: 2 1 0%;
+    max-width: 50%;
+    
+    @media ($desktop-min-xl) {
+      margin-left: 2.5rem;
+    }
+    @media ($tablet-max) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+  &__right-column {
+    flex: 1 1 0%;
+    max-width: 100%;
+
+    @media ($tablet-max) and ($tablet-min) {
+      margin-top: 4rem;
+    }
+    @media ($mobile-max) {
+      margin-top: 2.7rem;
+    }
+  }
+  // &__characteristics-and-reviews {}
+  &__header {
+    top: $header-height-mobile;
+    z-index: 1;
+    position: sticky;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
+
+    & ~ * {
+      margin-top: 3.1rem;
+
+      @media ($mobile-max) {
+        margin-top: 2.8rem;
+      }
+    }
+  }
+  &__heading {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1.7rem;
+
+    @media ($desktop-max) and ($tablet-min) {
+      font-size: 18px;
+    }
+    @media ($mobile-max) {
+      font-size: 16px;
+    }
+  }
+  &__navigation {
+    margin-top: -$additional-info-gap;
+    margin-left: -$additional-info-gap;
+  }
+  &__list {
+    @extend %row-wrapper;
+  }
+  &__list-item {
+    display: inline-block;
+    margin-top: $additional-info-gap;
+    margin-left: $additional-info-gap;
+  }
+  &__link {
+    padding: 14px 30px;
+    font-size: 18px;
+    background-color: transparent;
+
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
+    @media ($mobile-max) {
+      padding: 14px 24px;
+      font-size: 14px;
+    }
+
+    &.active {
+      color: $white;
+      background-color: $primary-color;
+    }
+  }
+}

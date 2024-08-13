@@ -1,0 +1,411 @@
+.product {
+  @extend %product !optional;
+
+  &__inner {
+    height: 100%;
+    // padding: 15px 0;
+    border: 1px solid $dark10;
+    display: flex;
+    position: relative;
+    // transform: translateY(0);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    flex-direction: column;
+
+    @extend %product-inner !optional;
+
+    &:hover {
+      border-color: $primary-color;
+      @extend %product-hover !optional;
+
+      // @media ($desktop-min) {
+      //   transform: translateY(-5px);
+      // }
+    }
+  }
+  &__image-wrapper {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    padding-bottom: 73.17%;
+
+    // @media ($mobile-max) {
+    //   padding-bottom: 90%;
+    // }
+
+    @extend %product-image-wrapper !optional;
+  }
+  // &__image {}
+  &__content {
+    display: flex;
+    // position: relative;
+    position: static;
+    flex-grow: 1;
+    font-size: 16px;
+    line-height: 1.2;
+    flex-direction: column;
+
+    @extend %product-content !optional;
+
+    // @media ($mobile-max) {
+    //   font-size: 14px;
+    // }
+
+    %product-badges {
+      position: static;
+      margin-bottom: 1.25rem;
+    }
+  }
+  %availability {
+    margin-top: 1.25rem;
+  }
+  &__characteristics {
+    @include row(5px, 5px, true);
+    color: $dark30;
+    font-size: 15px;
+    margin-top: 1.25rem;
+    line-height: 1.2;
+    font-weight: 500;
+    align-items: center;
+
+    @extend %product-characteristics !optional;
+
+    // @media ($mobile-max) {
+    //   font-size: 14px;
+    // }
+
+    > * {
+      display: flex;
+      flex-wrap: wrap;
+      flex-basis: 100%;
+      align-items: center;
+
+      > *:nth-child(1) {
+        margin-right: 10px;
+      }
+      > *:nth-child(n + 2) {
+        color: $dark;
+        display: flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+      }
+    }
+    svg {
+      margin-right: 5px;
+    }
+  }
+  &__features {
+    top: 18px;
+    right: 18px;
+    z-index: 1;
+    padding: 2px;
+    overflow: hidden;
+    position: absolute;
+
+    @extend %product-features !optional;
+
+    // @media ($mobile-max) {
+    //   top: 10px;
+    //   right: 10px;
+    // }
+  }
+  &__features-inner {
+    @extend %flex-center;
+    height: 100%;
+    flex-direction: column;
+
+    @extend %product-features-inner !optional;
+
+    // @media ($desktop-min) {
+    //   opacity: 0;
+    //   transition: opacity 0.3s;
+
+    //   %product-hover & {
+    //     opacity: 1;
+    //   }
+    //   &:focus-within {
+    //     opacity: 1;
+    //   }
+    // }
+  }
+  &__features-button {
+    width: 40px;
+    color: $dark30;
+    border: none;
+    height: 40px;
+    padding: 0;
+    // min-width: 25px;
+    // min-height: 25px;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+    background-color: $dark10;
+
+    @extend %product-features-button !optional;
+
+    @media ($desktop-min) {
+      &:hover {
+        color: $grey;
+
+        @extend %product-features-button-hover !optional;
+      }
+    }
+
+    svg {
+      // width: auto;
+      color: inherit;
+      // height: 1.2rem;
+
+      @media ($desktop-min) {
+        transition: color 0.2s;
+      }
+    }
+    &.active,
+    &.voted,
+    &.added {
+      // background-color: $grey;
+
+      svg {
+        // color: $white;
+        color: $primary-color;
+      }
+    }
+    & + & {
+      // margin-left: 7px;
+      margin-top: 7px;
+    }
+  }
+  &__heading {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0 !important;
+    text-transform: none;
+    text-decoration: none;
+
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+    }
+
+    // @media ($mobile-max) {
+    //   font-size: 16px;
+    // }
+
+    @extend %product-heading !optional;
+  }
+  &__price-wrapper {
+    @include row(5px, 10px, true);
+    flex-grow: 1;
+    margin-top: auto;
+    margin-top: 1.25rem;
+    align-items: flex-end;
+
+    @extend %product-price-wrapper !optional;
+
+    // @media ($mobile-max) {
+    //   margin-top: 10px;
+    // }
+  }
+  &__price {
+    color: $dark;
+    font-size: 26px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    // @media ($mobile-max) {
+    //   font-size: 20px;
+    // }
+
+    &_old {
+      color: $dark60;
+      font-size: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: line-through;
+
+      // @media ($mobile-max) {
+      //   font-size: 16px;
+      // }
+
+      & + * {
+        color: $required-and-error;
+      }
+    }
+  }
+  // &__installment {
+  //   color: $grey;
+  //   font-size: 14px;
+  //   margin-top: 9px;
+  //   font-weight: 700;
+
+  //   @extend %product-installment !optional;
+
+  //   @media ($mobile-max) {
+  //     font-size: 12px;
+  //   }
+  // }
+  &__form {
+    padding: 20px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    // @media ($mobile-max) {
+    //   padding: 10px;
+    // }
+
+    @extend %product-form !optional;
+  }
+  &__bottom {
+    @include row(10px, 10px, true);
+    margin-top: 1.25rem;
+
+    @extend %product-bottom !optional;
+  }
+  &__btn {
+    width: 100%;
+    z-index: 1;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+
+    // @media ($mobile-max) {
+    //   font-size: 14px;
+    // }
+
+    @extend %product-button !optional;
+
+    // &:focus-within {
+    //   @include focus-styles($color: $primary-color);
+    // }
+  }
+  // &__colors {
+  //   border: none;
+  //   margin: 15px 0 0;
+  //   padding: 0;
+  //   position: relative;
+  //   flex-wrap: nowrap;
+  //   @extend %row-wrapper;
+  //   justify-content: center;
+
+  //   @extend %product-colors !optional;
+
+  //   @media ($mobile-max) {
+  //     margin-top: 8px;
+  //   }
+  // }
+  // &__color-label {
+  //   width: 11.075%;
+  //   cursor: pointer;
+  //   overflow: hidden;
+  //   max-width: 35px;
+  //   @extend %row-wrapper;
+  //   margin-left: 2.5%;
+  //   margin-right: 2.5%;
+  //   border-radius: 50%;
+  //   justify-content: center;
+  //   background-color: #d9d9d9;
+
+  //   @extend %product-color-label !optional;
+
+  //   @media ($desktop-min) {
+  //     transition: transform 0.3s, background-color 0.3s;
+  //     transform: scale(1);
+
+  //     &:hover {
+  //       transform: scale(1.05);
+  //       background-color: $primary-color;
+  //     }
+  //   }
+  //   @media ($mobile-max) {
+  //     width: 14%;
+  //     margin-left: 3px;
+  //     margin-right: 3px;
+  //   }
+
+  //   &.active {
+  //     @extend %product-active-label;
+  //   }
+  // }
+  // &__color {
+  //   width: 100%;
+  //   height: 0;
+  //   margin: 1px;
+  //   display: block;
+  //   position: relative;
+  //   border-radius: 50%;
+  //   padding-bottom: 92.4%;
+  //   padding-bottom: calc(100% - 2px);
+  //   transform: scale(1);
+  //   transition: transform 0.3s;
+
+  //   %product-active-label & {
+  //     transform: scale(0.85);
+  //   }
+  // }
+  &__badges {
+    top: 20px;
+    left: 20px;
+    // right: 20px;
+    // bottom: 20px;
+    @include row(5px, 5px, true, false);
+    position: absolute;
+    transition: transform $transition3;
+    align-items: flex-start;
+    flex-direction: column;
+
+    // @media ($mobile-max) {
+    //   top: 10px;
+    //   left: 10px;
+    //   // right: 10px;
+    //   // bottom: 10px;
+    // }
+
+    @extend %product-badges !optional;
+  }
+  &__badge {
+    color: $white;
+    padding: 0.333rem 0.666rem;
+    font-size: 14px;
+    line-height: 1.43;
+    border-radius: 5px;
+    background-color: $grey;
+
+    // @media ($mobile-max) {
+    //   padding: 0.25rem 0.625rem;
+    //   font-size: 12px;
+    // }
+
+    &_novelty {
+      color: #976d00;
+      background-color: #fff1be;
+    }
+    &_discount {
+      color: #ed1c00;
+      background-color: #ffd9d9;
+    }
+    &_bestseller {
+      color: #009229;
+      background-color: #dbffe9;
+    }
+    // &_measure {
+    //   color: #9f7300;
+    //   background-color: #ffe589;
+    // }
+    // &_installment {
+    //   color: #0060ed;
+    //   background-color: #adceff;
+    // }
+    // &_installation {
+    //   color: #00606d;
+    //   background-color: #80f0ff;
+    // }
+    // &_gift {
+    //   color: #9300ed;
+    //   background-color: #e0adff;
+    // }
+  }
+  // &__badge-icon {}
+}

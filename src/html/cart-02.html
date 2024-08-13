@@ -1,0 +1,239 @@
+<section class="cart">
+  <div class="container">
+    @@if(context.heading){<h1 class="cart__heading heading _h2">@@heading</h1>}
+    <div class="cart__items">
+      <div class="cart__item">
+        <form class="cart__items form" method="post">
+          <div class="cart__inner-item">
+            <div class="cart__inner">
+              <div class="form__items">
+                <div data-toggle-container="">
+                  <div class="form__item">
+                    <fieldset class="form__item-wrapper">
+                      <legend class="form__item-heading cart__title">Доставка</legend>
+                      <div class="form__items-row">
+                        <label class="form__label-button">
+                          <input class="form__radio" type="radio" name="delivery" value="По адресу"
+                            data-toggle="address" checked="">
+                          <span class="form__label _btn">По адресу</span>
+                        </label>
+                        <label class="form__label-button">
+                          <input class="form__radio" type="radio" name="delivery" value="Самовывоз"
+                            data-toggle="pickup">
+                          <span class="form__label _btn">Самовывоз</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="form-block__item-wrapper" data-target="address">
+                    <div class="form__items">
+                      <div class="form__item form__item_max">
+                        <p class="cart__subtitle">Стоимость доставка по адресу — 10.00 BYN</p>
+                      </div>
+                      <div class="form__item">
+                        <label>
+                          <span class="form__label">Населенный пункт</span>
+                          <input class="form__input" type="text" name="city" placeholder="Населенный пункт">
+                        </label>
+                      </div>
+                      <div class="form__item form__item_max">
+                        <div class="form__items form__item-wrapper form__item-wrapper_row">
+                          <div class="form__item">
+                            <label>
+                              <span class="form__label">Улица</span>
+                              <input class="form__input" type="text" name="street" placeholder="Улица">
+                            </label>
+                          </div>
+                          <div class="form__item form__item_auto">
+                            <label>
+                              <span class="form__label">Дом</span>
+                              <input class="form__input" type="text" name="house" placeholder="Дом">
+                            </label>
+                          </div>
+                          <div class="form__item form__item_auto">
+                            <label>
+                              <span class="form__label">Корп.</span>
+                              <input class="form__input" type="text" name="building" placeholder="Корп.">
+                            </label>
+                          </div>
+                          <div class="form__item form__item_auto">
+                            <label>
+                              <span class="form__label">Под.</span>
+                              <input class="form__input" type="text" name="entrance" placeholder="Под.">
+                            </label>
+                          </div>
+                          <div class="form__item form__item_auto">
+                            <label>
+                              <span class="form__label">Этаж</span>
+                              <input class="form__input" type="text" name="floor" placeholder="Этаж">
+                            </label>
+                          </div>
+                          <div class="form__item form__item_auto">
+                            <label>
+                              <span class="form__label">Квартира</span>
+                              <input class="form__input" type="text" name="apartment" placeholder="Квартира">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form__item">
+                        <label>
+                          <span class="form__label">Комментарий <span>(необязательно)</span></span>
+                          <textarea class="form__input" name="comment" placeholder="Ваш вопрос"></textarea>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-block__item-wrapper" data-target="pickup">
+                    <div class="form__items">
+                      <div class="form__item">
+                        <p class="cart__subtitle">Стоимость самовывоза — бесплатно</p>
+                      </div>
+                      <div class="form__item">
+                        <fieldset class="form__item-wrapper">
+                          <legend class="form__item-heading sr-only">Адреса самовывоза</legend>
+                          <label>
+                            <input class="form__radio" type="radio" name="entrance-type" value="Адрес 1">
+                            <span class="form__label">Адрес 1</span>
+                          </label>
+                          <label>
+                            <input class="form__radio" type="radio" name="entrance-type" value="Адрес 2">
+                            <span class="form__label">Адрес 2</span>
+                          </label>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart__inner-item">
+            <div class="cart__inner">
+              <div class="form__items">
+                <p class="cart__title">Контактные данные</p>
+                <div class="form__item form__item_half">
+                  <label>
+                    <span class="form__label">Имя</span>
+                    <input class="form__input" type="text" name="first-name" value="" placeholder="Имя">
+                    <span class="form__error-message"></span>
+                  </label>
+                </div>
+                <div class="form__item form__item_half">
+                  <label>
+                    <span class="form__label">Фамилия</span>
+                    <input class="form__input" type="text" name="last-name" value="" placeholder="Фамилия">
+                    <span class="form__error-message"></span>
+                  </label>
+                </div>
+                <div class="form__item">
+                  <label>
+                    <span class="form__label">Телефон</span>
+                    <input class="form__input" type="tel" name="phone" value="" placeholder="Телефон">
+                    <span class="form__error-message"></span>
+                  </label>
+                </div>
+                <div class="form__item">
+                  <label>
+                    <span class="form__label">E-mail <span>(необязательно)</span></span>
+                    <input class="form__input" type="email" name="email" value="" placeholder="E-mail">
+                    <span class="form__error-message"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart__inner-item">
+            <div class="cart__inner">
+              <div class="form__items">
+                <p class="cart__title">Оплата</p>
+                <fieldset class="form__item-wrapper">
+                  <legend class="sr-only">Оплата</legend>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="cash" checked="">
+                      <span class="form__label">Наличными</span>
+                    </label>
+                  </div>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="card">
+                      <span class="form__label">Картой при получении</span>
+                    </label>
+                  </div>
+                  @@if(false){<div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="erip">
+                      <span class="form__label">ЕРИП</span>
+                    </label>
+                  </div>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="halva">
+                      <span class="form__label">Картой “ХАЛВА” 2-4 месяца</span>
+                    </label>
+                  </div>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="cherepaha">
+                      <span class="form__label">Картой “ЧЕРЕПАХА” 8 месяцев</span>
+                    </label>
+                  </div>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="card-two-month">
+                      <span class="form__label">Картой покупок 2 месяца</span>
+                    </label>
+                  </div>
+                  <div class="form__item">
+                    <label>
+                      <input class="form__radio" type="radio" name="payment" value="rrb">
+                      <span class="form__label">Онлайн рассрочка от РРБ банка 3 месяца</span>
+                    </label>
+                  </div>}
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="cart__inner-item">
+            <div class="cart__inner">
+              <label class="form__checkbox" tabindex="0">
+                <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+                <span class="form__label">Нажимая на кнопку «Оформить заказ», я даю согласие на <a href="#" target="_blank">обработку персональных данных</a>
+                  и соглашаюсь c <a href="#" target="_blank">политикой конфиденциальности</a>.</span>
+              </label>
+            </div>
+          </div>
+          <div class="cart__inner-item">
+            <div class="cart__inner">
+              <button class="cart__button _btn _btn--accent" type="submit" name="ms2_action" value="order/submit">Оформить
+                заказ</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="cart__item cart__item_result cart__item_first">
+        <div class="cart__result">
+          <span class="cart__title">Итого</span>
+          <table class="cart__summary">
+            <tr>
+              <th scope="row">Паркетная доска Polarwood Дуб COTTAGE</th>
+              <td>1 шт.</td>
+              <td>129.00 BYN</td>
+            </tr>
+            <tr>
+              <th scope="row">Паркетная доска Polarwood Дуб COTTAGE</th>
+              <td>1 шт.</td>
+              <td>139.00 BYN</td>
+            </tr>
+            <tr>
+              <th scope="row" colspan="2">Доставка</th>
+              <td>10.00 BYN</td>
+            </tr>
+          </table>
+          <p class="cart__sum">268.00 BYN<span class="cart__sum-count">за 2 товара</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

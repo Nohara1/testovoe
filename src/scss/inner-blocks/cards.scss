@@ -1,0 +1,151 @@
+.cards {
+  $card-items-gap: 1.875rem;
+  $arrow-gap: 2.2rem;
+
+  &__items {
+    @extend %row-wrapper;
+    margin-top: -$card-items-gap;
+    margin-left: -$card-items-gap;
+    justify-content: center;
+
+    @media ($mobile-max) {
+      flex-direction: column;
+    }
+  }
+  &__arrow {
+    flex: 0.1 1 0%;
+    margin: $arrow-gap calc(3.5rem - $card-items-gap)
+      calc($arrow-gap - $card-items-gap) 3.5rem;
+    position: relative;
+    min-width: 3rem;
+    align-self: center;
+    border-top: 3px solid $primary-color;
+
+    @media ($desktop-max) and ($tablet-mid) {
+      margin: $arrow-gap calc(1.5rem - $card-items-gap)
+        calc($arrow-gap - $card-items-gap) 1.5rem;
+    }
+    @media ($tablet-mad) and ($tablet-min) {
+      margin: $arrow-gap calc(1rem - $card-items-gap)
+        calc($arrow-gap - $card-items-gap) 1rem;
+      min-width: 2rem;
+    }
+    @media ($mobile-max) {
+      transform: rotate(90deg);
+    }
+
+    &:nth-child(4n + 2) {
+      @extend %cards-arrow-4n !optional;
+    }
+    & div {
+      &::before,
+      &::after {
+        top: -3px;
+        right: 0;
+        width: 15px;
+        height: auto;
+        content: "";
+        display: block;
+        position: absolute;
+        border-top: 3px solid $primary-color;
+        transform-origin: 90% 50%;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__item {
+    flex: 2 0 0%;
+    min-width: 120px;
+    min-width: min-content;
+    max-width: 420px;
+    margin-top: $card-items-gap;
+    margin-left: $card-items-gap;
+
+    @media ($mobile-max) {
+      width: calc(100% - $card-items-gap);
+      max-width: 330px;
+      align-self: center;
+    }
+
+    &:nth-child(2n) {
+      @extend %cards-odd-items !optional;
+    }
+    &:nth-child(2n + 1) {
+      @extend %cards-even-items !optional;
+    }
+    %cards-arrow-4n + & {
+      @extend %cards-items-next-to-arrows !optional;
+    }
+  }
+  &__item-inner {
+    height: 100%;
+    cursor: default;
+    border: 1px solid $items-border;
+    padding: 1.45rem;
+    text-align: center;
+    background-color: $white;
+
+    @media ($desktop-min) {
+      transform: translateY(0);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+
+        @extend %cards-item-inner-hover !optional;
+      }
+    }
+    &._green-border {
+      border-color: $primary-color;
+    }
+  }
+  &__image {
+    svg {
+      width: 4.0625rem;
+      height: 4.0625rem;
+      min-width: 38px;
+      min-height: 38px;
+
+      @media ($desktop-min) {
+        transform: scale(1);
+        transition: transform 0.3s;
+
+        %cards-item-inner-hover & {
+          transform: scale(1.1);
+        }
+      }
+    }
+    %cards-even-items & {
+      color: $primary-color;
+    }
+    %cards-odd-items &,
+    %cards-items-next-to-arrows & {
+      color: $grey;
+    }
+  }
+  &__title {
+    font-size: 18px;
+    margin-top: 1rem;
+    line-height: 1.22;
+
+    @media ($desktop-max) and ($tablet-mid) {
+      font-size: 16px;
+    }
+    @media ($tablet-mad) {
+      margin: 1rem auto 0;
+      font-size: 14px;
+      max-width: 250px;
+    }
+
+    & > * + * {
+      margin-top: 0.2em;
+    }
+  }
+}

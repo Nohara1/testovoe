@@ -1,0 +1,75 @@
+<div class="popup-overlay"></div>
+<aside class="popups-wrapper">
+  <span class="sr-only">Всплывающие окна</span>
+  @@include("./src/html/popup.html", {
+  'id': 'request-a-call',
+  'title': 'Заказать звонок',
+  'formSrc': './src/html/forms/request-a-call.html'
+  })
+  @@if (context.payment) {
+    @@include("./src/html/popup.html", {
+    'id': 'online-payment',
+    'title': 'Оплата онлайн',
+    'formSrc': './src/html/forms/online-payment.html'
+    })
+  }
+  @@if (context.checkout) {
+    @@include("./src/html/popup.html", {
+    'id': 'checkout',
+    'title': 'Оформить заказ',
+    'formSrc': './src/html/forms/checkout.html'
+    })
+  }
+  @@if (context.foundCheaper) {
+    @@include("./src/html/popup.html", {
+    'id': 'found-cheaper',
+    'title': 'Нашли дешевле?',
+    'formSrc': './src/html/forms/found-cheaper.html'
+    })
+  }
+  @@if (context.leaveAReview) {
+    @@include("./src/html/popup.html", {
+    'id': 'leave-a-review',
+    'title': 'Оставить отзыв',
+    'formSrc': './src/html/forms/leave-a-review.html'
+    })
+  }
+  @@if (context.orderAMeasurement) {
+    @@include("./src/html/popup.html", {
+    'id': 'order-a-measurement',
+    'title': 'Заказать замер',
+    'formSrc': './src/html/forms/request-a-call.html'
+    })
+  }
+  @@if (context.startCooperation) {
+    @@include("./src/html/popup.html", {
+    'id': 'start-cooperation',
+    'title': 'Начать сотрудничество',
+    'formSrc': './src/html/forms/start-cooperation.html'
+    })
+  }
+  @@if (context.claimAnnotation) {
+    @@include("./src/html/popup.html", {
+    'id': 'claim-annotation',
+    'title': '<small>Ознакомьтесь со списком <span>ОБЯЗАТЕЛЬНЫХ</span> фотографий для оформления рекламации</small>',
+    'formSrc': './src/html/forms/claim-annotation.html'
+    })
+  }
+  @@if (context.requestRepair) {
+    @@include("./src/html/popup.html", {
+    'id': 'request-a-repair',
+    'title': 'Заказать услугу ремонта',
+    'formSrc': './src/html/forms/request-a-repair.html'
+    })
+  }
+  @@if (1) {
+    @@include("./src/html/popup.html", {
+    'id': 'cookie-reject',
+    'title': 'Отказ от обработки cookie',
+    'formSrc': './src/html/include/cookie-reject.html'
+    })
+  }
+</aside>
+@@include("./src/html/include/search-popup.html")
+@@if(1){@@include("./src/html/include/cookie.html")}
+@@include("./src/html/include/scroll-top.html")

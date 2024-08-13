@@ -1,0 +1,35 @@
+<div class="contacts">
+  <div class="contacts__item">
+    <span class="contacts__label">Режим работы</span>
+    <div class="contacts__content contacts__timetable">
+      <svg class="contacts__icon" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#clock"></use>
+      </svg><span class="contacts__link">пн‑пт&nbsp;10:00-19:00, сб‑вс&nbsp;11:11-22:22</span>
+    </div>
+  </div>
+  @@if(false){<div class="contacts__item">
+    <span class="contacts__label">Наша почта</span>
+    <div class="contacts__content contacts__email">
+      <svg class="contacts__icon" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#email"></use>
+      </svg><a class="contacts__link" href="mailto:palubaby.by@gmail.com">palubaby.by@gmail.com</a>
+    </div>
+  </div>}
+  <div class="contacts__item">
+    <span class="contacts__label">Телефон для связи</span>
+    <div class="contacts__content contacts__phone">
+      @@include('./src/html/socials.html', {
+        telegram: true,
+        whatsapp: true,
+        viber: true,
+        instagram: false,
+        facebook: false
+      })
+      <div class="contacts__phone-wrapper">
+        <svg class="contacts__icon" width="20" height="20" aria-hidden="true">
+          <use href="images/icons.svg#phone"></use>
+        </svg><a class="contacts__link" href="tel:+375445409640">+375(44) 540-96-40</a>
+      </div>
+    </div>
+  </div>
+</div>

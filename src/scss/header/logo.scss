@@ -1,0 +1,41 @@
+.logo {
+  color: $primary-color;
+  display: inline-block;
+  position: relative;
+  @extend %link-indent;
+
+  @media ($desktop-min) {
+    transition: transform $transition3;
+
+    &[href]:hover {
+      transform: translateY(-2px);
+    }
+  }
+  & svg {
+    width: 240px;
+    height: auto;
+    transition: width $transition3;
+
+    @media ($desktop-max-xl) and ($desktop-min-xl) {
+      width: 200px;
+    }
+    @media ($desktop-max) /*and ($tablet-min)*/ {
+      width: 140px;
+    }
+    // @media ($mobile-max) {
+    //   width: 120px;
+    // }
+
+    // %header-scrolled & {
+    //   width: 139px;
+    // }
+
+    // & path {
+    //   transition: fill $transition3;
+
+    //   %header-scrolled & {
+    //     fill: $scrolled-color;
+    //   }
+    // }
+  }
+}

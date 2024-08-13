@@ -1,0 +1,56 @@
+<div class="products">
+  <div class="products__filter">
+    @@include('./src/html/include/products-filter.html', {
+      pageUrl: '@@categoryUrl'
+    })
+    @@if(false){<aside class="products__promotion">
+      <span class="sr-only">Акции</span>
+      @@include('./src/html/include/promotion-banner.html', {
+        title: 'Акция',
+        date: '22.01.23',
+        dateFormat: '2023-01-22',
+        doorImageSrc: 'images/homepage-door-01.jpg'
+      })
+    </aside>}
+  </div>
+  @@if(false){<div class="products__additional-links">
+    <ul class="additional-links">
+      <li class="additional-links__list-item active">
+        <a href="#" class="additional-links__link">Виниловые полы</a>
+      </li>
+      <li class="additional-links__list-item">
+        <a href="#" class="additional-links__link">Паркетная доска</a>
+      </li>
+      <li class="additional-links__list-item">
+        <a href="#" class="additional-links__link">Ламинат</a>
+      </li>
+      <li class="additional-links__list-item">
+        <a href="#" class="additional-links__link">Линолеум</a>
+      </li>
+      <li class="additional-links__list-item">
+        <a href="#" class="additional-links__link">Террасная доска (декинг)</a>
+      </li>
+      <li class="additional-links__list-item">
+        <a href="#" class="additional-links__link">Ковролин, ковровые покрытия</a>
+      </li>
+    </ul>
+  </div>}
+  <div class="products__filter-background"></div>
+  <div class="products__wrapper">
+    @@if(false){<section class="products__description">
+      <h2 class="products__description-heading heading">SEO-текст</h2>
+      <div class="_custom-content">
+        <p>Дверь — элемент стеновой конструкции, предназначенный для заполнения дверных проемов и состоящий из дверного
+          блока, крепления дверного блока к проему, монтажных швов, системы уплотнений и облицовки и обеспечивающий при
+          закрытом положении дверного полотна защиту от климатических, шумовых и других воздействий, а также от
+          несанкционированного прохода.</p>
+      </div>
+    </section>}
+    <div class="products__items grid2" data-lazy-observe="">
+      @@loop('./src/html/include/product.html', '../json/products.json')
+    </div>
+    @@include('./src/html/include/pagination.html', {
+      pageUrl: '@@categoryUrl'
+    })
+  </div>
+</div>

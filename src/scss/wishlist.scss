@@ -1,0 +1,48 @@
+.wishlist {
+  $wishlist-gap: 1.875rem;
+
+  padding: 4rem 0;
+  margin-bottom: auto;
+
+  @media ($mobile-max) {
+    padding: 2.5rem 0;
+  }
+
+  // &__heading {}
+  &__items {
+    @extend %row-wrapper;
+    margin-left: -$wishlist-gap;
+    margin-bottom: -$wishlist-gap;
+
+    %product {
+      flex: 1 1 20%;
+      max-width: 20%;
+      padding-left: $wishlist-gap;
+      margin-bottom: $wishlist-gap;
+
+      @media (min-width: 1660px) {
+        max-width: 20%;
+        flex-basis: 20%;
+      }
+      @media (max-width: 1659.98px) and ($desktop-min-xl) {
+        flex: 1 1 25%;
+        max-width: 25%;
+      }
+      @media ($desktop-max) and ($desktop-min) {
+        flex: 1 1 33.3333%;
+        max-width: 33.3333%;
+      }
+      @media ($tablet-max) and ($tablet-min) {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
+      @media ($mobile-max) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+  }
+  %pagination {
+    margin-top: 3rem;
+  }
+}

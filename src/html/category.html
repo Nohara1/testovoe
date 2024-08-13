@@ -1,0 +1,25 @@
+<main class="category">
+  <div class="container">
+    <header class="category__header">
+      <h1 class="category__heading heading _h2">@@title</h1>
+      @@include('./src/html/include/category-subcategories.html', {
+        jsonPath: '@@subcategoriesJsonPath'
+      })
+      <h3 class="category__heading heading _h3">Популярные категории</h3>
+      @@include('./src/html/include/category-popular.html', {
+        jsonPath: '@@popularJsonPath',
+        hiddenJsonPath: '@@popularJsonPath'
+      })
+    </header>
+    <div class="category__sort">
+      @@include('./src/html/include/products-sort.html', {
+        viewButtons: false,
+        pageUrl: '@@url'
+      })
+    </div>
+    @@include('./src/html/include/category-products.html', {
+      categoryUrl: '@@url',
+      categoryTitle: '@@title'
+    })
+  </div>
+</main>

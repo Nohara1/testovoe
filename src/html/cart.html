@@ -1,0 +1,53 @@
+<section class="cart">
+  <div class="container">
+    @@if(context.heading){<h1 class="cart__heading heading _h2">@@heading</h1>}
+    <div class="cart__items">
+      <div class="cart__item">
+        <div class="cart__products">
+          <div class="cart__product cart__product_full">
+            @@include('./src/html/include/product-card-mini.html', {
+            link: 'product-page',
+            imageSrc: 'images/products/product-preview-thumb.jpg',
+            title: 'Паркетная доска Polarwood Дуб COTTAGE',
+            oldPrice: '139.00',
+            price: '129.00',
+            closeButton: true,
+            })
+          </div>
+          <div class="cart__product cart__product_full">
+            @@include('./src/html/include/product-card-mini.html', {
+            link: 'product-page',
+            imageSrc: 'images/products/product-preview-thumb.jpg',
+            title: 'Паркетная доска Polarwood Дуб COTTAGE',
+            oldPrice: '',
+            price: '129.00',
+            closeButton: true,
+            })
+          </div>
+        </div>
+        <div class="cart__remove-wrapper">
+          <button class="cart__remove-all" type="button" name="remove-all">Очистить корзину</button>
+        </div>
+      </div>
+      <div class="cart__item cart__item_result">
+        <form class="ms2_form form cart__result" id="msOrder" method="post">
+          <span class="cart__title">Итого</span>
+          @@if(false){<table class="cart__summary">
+            <tr>
+              <th scope="row">Паркетная доска Polarwood Дуб COTTAGE</th>
+              <td>1 шт.</td>
+              <td>129.00 BYN</td>
+            </tr>
+            <tr>
+              <th scope="row">Паркетная доска Polarwood Дуб COTTAGE</th>
+              <td>1 шт.</td>
+              <td>139.00 BYN</td>
+            </tr>
+          </table>}
+          <p class="cart__sum">268.00 BYN<span class="cart__sum-count">за 2 товара</span></p>
+          <button class="cart__submit _btn _btn--accent" type="submit" name="cart-submit">Перейти к оформлению</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

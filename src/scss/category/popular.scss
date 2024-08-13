@@ -1,0 +1,185 @@
+.popular {
+  border: 1px solid $primary-color;
+  display: flex;
+  padding: 1.375rem 1.875rem;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  align-items: flex-start;
+  border-radius: 5px;
+  justify-content: space-between;
+  background-color: $white;
+
+  @extend %popular !optional;
+
+  @media ($tablet-mad) {
+    padding: 1.125rem;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &._expanded {
+    @extend %popular-expanded !optional;
+  }
+
+  &__heading {
+    color: $heading-color;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__list {
+    flex: 1 1 0%;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    @include row(1.3125rem, 1.875rem, false, false);
+
+    &::after {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      background-image: linear-gradient(
+        -90deg,
+        $white 0px,
+        transparent 2.625rem
+      );
+    }
+
+    %popular-expanded & {
+      flex-wrap: wrap;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+  &__list-item {
+    flex: 0 0 auto;
+    display: inline-flex;
+  }
+  &__link {
+    color: $dark60;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+
+    @media ($desktop-min) {
+      transition: color 0.2s;
+
+      &:hover {
+        color: $dark;
+      }
+    }
+    @media ($tablet-mad) {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  &__button {
+    color: $dark;
+    border: none;
+    bottom: 1.6rem;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 1rem;
+    align-items: center;
+    background-color: transparent;
+
+    @media ($desktop-min) {
+      transition: color 0.3s;
+
+      &:hover {
+        @extend %popular-button-hover !optional;
+      }
+    }
+    @media ($tablet-mad) {
+      font-size: 18px;
+      margin-top: 1rem;
+      margin-left: 0;
+    }
+
+    &::before {
+      content: attr(data-title);
+
+      %popular-expanded & {
+        content: attr(data-second-title);
+      }
+    }
+  }
+  &__button-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 8px;
+    display: flex;
+    position: relative;
+    font-size: 20px;
+    transform: scale(1);
+    transition: transform 0.3s, background-color 0.3s;
+    line-height: 1;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: center;
+    background-color: $dark10;
+
+    // %popular-expanded & {
+    //   transform: rotate(90deg);
+    // }
+
+    // @media ($desktop-min) {
+    //   %popular-button-hover & {
+    //     transform: scale(1.15);
+    //   }
+    //   %popular-expanded %popular-button-hover & {
+    //     transform: scale(1.15) rotate(90deg);
+    //   }
+    // }
+
+    &::before,
+    &::after {
+      width: 50%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      border-radius: 2px;
+      background-color: $dark30;
+      transition: transform 0.3s, opacity 0.3s, background-color 0.2s;
+
+      @media ($tablet-mad) {
+        background-color: $dark60;
+      }
+
+      %popular-expanded & {
+        transform: rotate(90deg);
+      }
+      @media ($desktop-min) {
+        %popular-button-hover & {
+          background-color: $dark;
+        }
+      }
+    }
+    &::before {
+      transform: rotate(0deg);
+
+      %popular-expanded & {
+        opacity: 0;
+        transform: rotate(90deg);
+      }
+    }
+    &::after {
+      transform: rotate(90deg);
+
+      %popular-expanded & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+<div class="product-card" data-product="">
+  <div class="container">
+    <div class="product-card__wrapper">
+      <div class="product-card__item">
+        <main class="product-card__main">
+          <div class="product__badges">
+            @@if (context.discount) {
+            <span class="product__badge product__badge_discount">Скидка 12%</span>
+            }
+            @@if (context.novelty) {
+            <span class="product__badge product__badge_novelty">Новинка</span>
+            }
+            @@if (context.bestseller) {
+            <span class="product__badge product__badge_bestseller">Хит</span>
+            }
+            @@if (context.measure) {
+            <span class="product__badge product__badge_measure">Замер+Укладка</span>
+            }
+            @@if (context.installment) {
+            <span class="product__badge product__badge_installment">Рассрочка</span>
+            }
+            @@if (context.installation) {
+            <span class="product__badge product__badge_installation">Укладка бесплатно</span>
+            }
+            @@if (context.gift) {
+            <span class="product__badge product__badge_gift">+Подарок</span>
+            }
+          </div>
+          <h1 class="product-card__heading heading" data-product-heading="">@@title</h1>
+          <div class="product-card__review">
+            <div class="product-card__rating">
+              <svg class="product-card__star @@if(rating>0){active}" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <svg class="product-card__star @@if(rating>1){active}" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <svg class="product-card__star @@if(rating>2){active}" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <svg class="product-card__star @@if(rating>3){active}" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <svg class="product-card__star @@if(rating>4){active}" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+            </div>
+            <a href="#reviews" class="product-card__to-reviews"><span>5</span> отзывов</a>
+          </div>
+          <div class="product-card__code">
+            <span class="product-card__code-heading">Артикул:</span>
+            <p class="product-card__code-content">1620259</p>
+          </div>
+          @@if(false){<div class="product-card__availability">
+            
+            <span class="product-card__availability-heading">Наличие:</span>
+            <p class="product-card__availability-content product-card__availability-content_available">В наличии</p>
+            @@if(true){<p class="product-card__availability-content product-card__availability-content_on-order">Под
+              заказ</p>
+            <p class="product-card__availability-content product-card__availability-content_ask">Уточняйте у менеджера
+            </p>
+            <p class="product-card__availability-content product-card__availability-content_not-available">Нет в наличии
+            </p>}
+          </div>}
+          @@include('./src/html/include/availability.html', { in_stock: true })
+          
+          <div class="product-card__price-wrapper">
+            @@if (context.discount) {
+            <span class="product-card__price_old">129.00</span>
+            }
+            <span class="product-card__price" data-product-price="">139.00 BYN</span>
+          </div>
+          @@if(false){<div class="product-card__main-item">
+            <div class="product-card__price-block">
+              <p class="product-card__price-wrapper">
+                <span>Цена проекта: <span class="product-card__price">от <span data-product-price="">@@price</span> руб.</span></span>
+                @@if (context.old_price) {
+                <span class="product-card__price product-card__price_old">@@old_price руб.</span>
+                }
+              </p>
+              <p class="product-card__price-wrapper">
+                <span>Стоимость строительства <span class="product-card__price">~ @@construction руб.</span></span>
+              </p>
+              <p class="product-card__price-wrapper">
+                <span>Сроки подготовки: <span class="product-card__price product-card__price_green">готов к
+                    отправке</span></span>
+              </p>
+            </div>
+          </div>
+          <div class="product-card__price">
+            <p class="product-card__price-heading">цена за комплект</p>
+            <strong class="product-card__price-value" data-product-price="">250 руб.</strong>
+            <button class="product-card__price-button _btn _btn--white" data-open-popup="found-cheaper"
+              type="button">Нашли дешевле?</button>
+          </div>}
+          @@if(false){<p class="product-card__features-title">Расчет необходимого количества</p>
+          <div class="product-card__features">
+            <button class="product-card__features-button" type="button" data-open-popup="order-a-measurement">Заказать
+              замер</button>
+          </div>}
+          <form method="post" class="product-card__form form">
+            <input type="hidden" name="id" value="@@id">
+            <input type="hidden" name="count" value="1">
+            <input type="hidden" name="options" value="[]">
+
+            @@if(false){@@include('./src/html/include/product-calculator.html')}
+
+            <fieldset class="product-card__buttons form__item-wrapper form__item-wrapper_row">
+              @@if(false){<fieldset class="form__item-wrapper form__item-wrapper_row">
+                <legend hidden>Количество добавляемых продуктов</legend>
+                <div class="form__item form__counter" data-counter-container="">
+                  <button class="form__counter-button" data-action="minus" type="button">
+                    -<span class="sr-only">Уменьшить на еденицу</span>
+                  </button>
+                  <label>
+                    <span class="sr-only">Количество</span>
+                    <input class="form__input" type="number" name="count" id="product_price" min="1" max="999" step="1"
+                      value="1" data-target="">
+                  </label>
+                  <button class="form__counter-button" data-action="plus" type="button">
+                    +<span class="sr-only">Увеличить на еденицу</span>
+                  </button>
+                </div>
+              </fieldset>}
+              <button class="product-card__btn _btn" type="submit" name="ms2_action" value="cart/add">
+                <svg width="20" height="20" aria-hidden="true">
+                  <use href="images/icons.svg#cart"></use>
+                </svg>В корзину
+              </button>
+              <button class="product-card__btn _btn _btn--white" data-open-popup="checkout" type="button">
+                <svg width="20" height="20" aria-hidden="true">
+                  <use href="images/icons.svg#phone"></use>
+                </svg>Купить в 1 клик
+              </button>
+              <button class="product-card__features-button" type="button" name="product-wish">
+                <svg width="20" height="20" aria-hidden="true">
+                  <use href="images/icons.svg#heart" />
+                </svg>
+                <span class="sr-only">Добавить в список желаемого</span>
+              </button>
+              <button class="product-card__features-button" type="button" name="product-compare">
+                <svg width="20" height="20" aria-hidden="true">
+                  <use href="images/icons.svg#comparison" />
+                </svg>
+                <span class="sr-only">Добавить в список сравнения</span>
+              </button>
+            </fieldset>
+            @@if(false){<section class="product-card__installment">
+              <span class="product-card__installment-heading">Цена в рассрочку</span>
+              <div class="product-card__installment-calculation">
+                <span id="installment-price" class="product-card__installment-price">601.00 р.</span>
+                <div class="form__item">
+                  <label>
+                    <span class="form__label" hidden>Срок рассрочки</span>
+                    <select class="form__select" name="installment-time">
+                      <option value="2">2 мес</option>
+                      <option value="4">4 мес</option>
+                      <option value="6">6 мес</option>
+                      <option value="8">8 мес</option>
+                      <option value="10">10 мес</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <a href="#" class="product-card__installment-terms">Условия рассрочки</a>
+            </section>}
+            @@if(false){
+            <div class="product-card__colors">
+              <fieldset class="form__item-wrapper form__item-wrapper_row">
+                <legend class="form__item-heading">Цвета</legend>
+                <div class="form__item form__color-wrapper">
+                  <label class="form__color">
+                    <span hidden>цвет номер 1</span>
+                    <input type="radio" name="product-color@@id" value="color001" checked hidden>
+                    <span class="form__label" style="background-color:#D8B888"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 2</span>
+                    <input type="radio" name="product-color@@id" value="color002" hidden>
+                    <span class="form__label" style="background-color:#737373"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 3</span>
+                    <input type="radio" name="product-color@@id" value="color003" hidden>
+                    <span class="form__label" style="background-color:#8E7248"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 4</span>
+                    <input type="radio" name="product-color@@id" value="color004" hidden>
+                    <span class="form__label" style="background-color:#f7f7f7"></span>
+                  </label>
+                  <label class="form__color active">
+                    <span hidden>цвет номер 5</span>
+                    <input type="radio" name="product-color@@id" value="color005" hidden>
+                    <span class="form__label" style="background-color:#373737"></span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="form__item-wrapper form__item-wrapper_row">
+                <legend class="form__item-heading">Стекло</legend>
+                <div class="form__item form__color-wrapper">
+                  <label class="form__color">
+                    <span hidden>цвет номер 1</span>
+                    <input type="radio" name="product-glass@@id" value="color001" checked hidden>
+                    <span class="form__label" style="background-color:#D8B888"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 2</span>
+                    <input type="radio" name="product-glass@@id" value="color002" hidden>
+                    <span class="form__label" style="background-color:#737373"></span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>}
+          </form>
+        </main>
+        @@if(false){<div class="product-card__full-price">
+          @@include('./src/html/include/full-price.html')
+        </div>}
+      </div>
+      <div class="product-card__item product-card__item_sliders">
+        <div class="product-card__sliders-wrapper">
+          @@include('./src/html/include/product-card-slider.html', {
+            sliderUrl: './src/html/include/product-card-slider-item.html',
+            sliderThumbUrl: './src/html/include/product-card-slider-item-thumb.html',
+            galleryUrl: '@@galleryUrl',
+            additionalClass: 'pcs-slider-01',
+            showBadges: false,
+            visible: true
+          })
+          @@if(false){@@include('./src/html/include/product-card-slider.html', {
+            sliderUrl: './src/html/include/product-card-slider-interior-item.html',
+            sliderThumbUrl: './src/html/include/product-card-slider-interior-item-thumb.html',
+            galleryUrl: '@@galleryUrl',
+            additionalClass: 'pcs-slider-02',
+            showBadges: false,
+            visible: false
+          })
+          <div class="product-card__sliders-switcher">
+            @@include('./src/html/include/sliders-switcher.html')
+          </div>}
+        </div>
+      </div>
+      <div class="product-card__item">
+        @@include('./src/html/include/product-tabs.html', {
+          anchors: false,
+          facades: false,
+          plans: false,
+          description: true,
+          characteristics: true,
+          video: false,
+          documents: false,
+          equipment: false,
+          specialOffer: false,
+          reviews: true,
+          question: true,
+          comparison: true
+        })
+      </div>
+      @@if(false){<div class="product-card__item">
+        <div class="collapse _centered">
+          <div class="collapse__items" data-toggle-container="toggle" role="tablist">
+            @@loop('./src/html/include/collapse-item.html', '../json/inner-content/product-collapse.json')
+          </div>
+        </div>
+      </div>}
+      @@if(false){<div class="product-card__additional-info">
+        @@include('./src/html/include/product-card-additional-info.html')
+      </div>}
+    </div>
+  </div>
+  <aside class="product-card__bottom-slides">
+    <div class="product-card__similar">
+      @@include('./src/html/custom-slider.html', {
+        title: 'С этим товаром покупают',
+        slides: 4,
+        smallGap: 40,
+        mobSlides: "auto",
+        itemPath: './src/html/include/slider-item-product.html',
+        jsonPath: '../json/products.json'
+      })
+    </div>
+    <div class="product-card__viewed">
+      @@include('./src/html/custom-slider.html', {
+        title: 'Похожие товары',
+        slides: 4,
+        smallGap: 40,
+        mobSlides: "auto",
+        itemPath: './src/html/include/slider-item-product.html',
+        jsonPath: '../json/products.json'
+      })
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,316 @@
+.catalog {
+  $row-width: 260px;
+  $column-height: auto;
+
+  *:focus-visible {
+    @include focus-styles($inset: true);
+  }
+
+  // @media ($desktop-min-xl) {
+  //   box-shadow: 0 30px 30px -30px rgba(0, 0, 0, 0.08),
+  //     30px 10px 30px -20px rgba(0, 0, 0, 0.08),
+  //     -30px 10px 30px -20px rgba(0, 0, 0, 0.08),
+  //     inset 0 30px 30px -30px rgba(0, 0, 0, 0.08);
+  // }
+
+  @extend %catalog !optional;
+
+  // &__title {}
+  &__list {
+    @media ($desktop-max) {
+      margin-top: 15px;
+
+      %catalog-list-wrapper %catalog-list-wrapper & {
+        margin-right: 10px;
+        background-color: $primary-hover;
+      }
+    }
+
+    @extend %catalog-list !optional;
+  }
+  &__list-inner {
+    @include small-scrollbar($secondary-color, $catalog-background);
+
+    @extend %catalog-list-inner !optional;
+
+    @media ($desktop-min-xl) {
+      height: $column-height;
+      overflow-y: auto;
+      overflow-x: hidden;
+      // padding: 20px 0;
+    }
+    @media ($mobile-max) {
+      & + & {
+        margin-top: 1rem;
+      }
+    }
+  }
+  &__list-heading:not(:empty) {
+    color: $white;
+    cursor: default;
+    display: block;
+    padding: 10px 0 20px 30px;
+    font-size: 15px;
+    font-weight: 300;
+
+    @media ($desktop-max) {
+      color: $grey;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+    @media ($mobile-max) {
+      padding: 10px 0 10px 20px;
+    }
+  }
+  &__list-item {
+    @extend %catalog-list-item !optional;
+
+    @media ($desktop-min-xl) {
+      width: $row-width;
+      position: static;
+
+      // &:hover > %catalog-link,
+      // &:hover > %catalog-buttons-wrapper > %catalog-link {
+      //   color: $primary-color;
+      // }
+    }
+    @media ($desktop-max) {
+      &%hover-to-open > %hover-to-open-target {
+        transform: translateY(10px);
+      }
+      &%hover-to-open.active > %hover-to-open-target {
+        transform: translateY(0px);
+      }
+    }
+  }
+  &__buttons-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    @extend %catalog-buttons-wrapper !optional;
+  }
+  &__link {
+    color: $dark60;
+    cursor: default;
+    display: flex;
+    padding: 1em 20px 1em 30px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    align-items: center;
+    text-decoration: none;
+    transition: color $transition3, border-color $transition3,
+      background-color $transition3;
+
+    @extend %catalog-link !optional;
+
+    &[href] {
+      cursor: pointer;
+    }
+    @media ($desktop-max) {
+      padding: 0.5em 10px;
+      font-size: 18px;
+    }
+    @media ($mobile-max) {
+      padding-left: 20px;
+    }
+    %catalog-list-item > & {
+      @media ($desktop-min-xl) {
+        border-top: 1px solid $dark10;
+      }
+    }
+    %catalog-list-item:last-child > & {
+      @media ($desktop-min-xl) {
+        border-bottom: 1px solid $dark10;
+      }
+    }
+    %catalog-list-wrapper %catalog-list-item > &,
+    %catalog-list-wrapper %catalog-buttons-wrapper & {
+      color: $white;
+
+      @media ($desktop-min-xl) {
+        border-top-color: $dark;
+      }
+      @media ($desktop-max) {
+        padding-left: 20px;
+      }
+    }
+    %catalog-list-wrapper %catalog-list-item:last-child > & {
+      @media ($desktop-min-xl) {
+        border-bottom-color: $dark;
+      }
+    }
+    %catalog-buttons-wrapper & {
+      width: 100%;
+      padding-right: 50px;
+
+      @media ($desktop-min-xl) {
+        border-top: 1px solid $dark10;
+      }
+    }
+
+    %hover-to-open-hover > %catalog-buttons-wrapper > &,
+    %hover-to-open-hover &:hover {
+      @media ($desktop-min-xl) {
+        color: $white;
+        border-color: $dark;
+        background-color: $dark;
+      }
+    }
+  }
+  // &__link-image {
+  //   width: 50px;
+  //   height: 50px;
+  //   min-width: 50px;
+  //   margin-right: 15px;
+
+  //   @media ($desktop-max) {
+  //     display: none;
+  //   }
+  // }
+  // &__name {
+  //   line-height: 1.25;
+  // }
+  &__list-wrapper {
+    top: 0;
+    left: $row-width;
+    // display: flex;
+    min-height: 100%;
+
+    @extend %catalog-list-wrapper !optional;
+
+    @media ($desktop-min-xl) {
+      grid-template-rows: 1fr;
+      // box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.08);
+    }
+    @media ($desktop-max) {
+      // border-radius: 5px;
+      flex-direction: column;
+      // background-color: $dark60;
+    }
+
+    & > %catalog-list-inner {
+      flex-shrink: 0;
+
+      @media ($desktop-min-xl) {
+        width: $row-width;
+        // padding: 20px 0;
+      }
+
+      &%catalog-banners-wrapper {
+        width: auto;
+        padding: 0;
+      }
+      & > %catalog-list {
+        @media ($desktop-min-xl) {
+          transition: border-color $transition3;
+          border-right: 1px solid $primary-hover;
+  
+          &:hover {
+            border-color: $dark;
+          }
+        }
+      }
+    }
+    & %catalog-list {
+      @media ($desktop-min-xl) {
+        background-color: $primary-color;
+      }
+      @media ($desktop-max) {
+        padding: 10px 0;
+        margin-left: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        background-color: $primary-color;
+      }
+    }
+  }
+  // &__banners-wrapper {
+  //   display: flex;
+  //   position: relative;
+  //   overflow-x: auto;
+  //   @include small-scrollbar($secondary-color, $catalog-background);
+
+  //   @extend %catalog-banners-wrapper !optional;
+
+  //   @media ($desktop-max) {
+  //     display: none;
+  //   }
+  //   %catalog &:focus-visible {
+  //     @include focus-styles;
+  //   }
+  // }
+  // &__banner {
+  //   width: $column-height;
+  //   height: inherit;
+  //   position: relative;
+  //   flex-shrink: 0;
+  // }
+  // &__banner-link {
+  //   color: $white;
+  //   height: 100%;
+  //   display: block;
+  //   text-decoration: none;
+
+  //   @extend %catalog-banner-link !optional;
+
+  //   &:hover {
+  //     @extend %catalog-banner-link-hover !optional;
+  //   }
+  //   &:not(:hover) {
+  //     @extend %catalog-banner-link-not-hover !optional;
+  //   }
+  // }
+  // &__banner-image-wrapper {
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   display: block;
+  //   position: absolute;
+
+  //   &::after {
+  //     top: 0;
+  //     left: 0;
+  //     right: 0;
+  //     bottom: 0;
+  //     content: "";
+  //     display: block;
+  //     position: absolute;
+  //     background-color: rgba(0, 0, 0, 0.31);
+  //   }
+  // }
+  // &__banner-image {
+  //   transition: transform $transition3;
+
+  //   %catalog-banner-link-not-hover & {
+  //     transform: translate(-50%, -50%) scale(1.1);
+  //   }
+  // }
+  // &__banner-title {
+  //   height: 100%;
+  //   z-index: 1;
+  //   display: flex;
+  //   position: relative;
+  //   text-align: center;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+  // &__banner-heading {
+  //   color: inherit;
+  //   max-width: 70%;
+  //   font-size: 26px;
+  //   font-weight: 600;
+  //   line-height: 1.25;
+  //   transform: scale(1);
+  //   transition: transform $transition3;
+
+  //   %catalog-banner-link-hover & {
+  //     transform: scale(1.1);
+  //   }
+  //   %catalog-banner-link:focus-visible & {
+  //     @include focus-styles;
+  //   }
+  // }
+}

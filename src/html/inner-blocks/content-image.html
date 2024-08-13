@@ -1,0 +1,25 @@
+<article @@if(context.id){id='@@id' }
+  class="content-image@@if(context.biggerImage){ _bigger-image}@@if(context.responsiveHeight){ _resp-height}@@if(context.fixedHeight){ _fixed-height}">
+  <div class="container">
+    @@if (context.heading) {
+    <h2 class="content-image__heading heading">@@heading</h2>
+    }
+    <div class="content-image__items @@if(context.reverse){_reverse}">
+      <div class="content-image__item content-image__item_content">
+        <div class="content-image__inner">
+          <div class="content-image__content _custom-content">
+            @@contents
+          </div>
+        </div>
+      </div>
+      <div class="content-image__item content-image__item_image">
+        <div class="content-image__inner">
+          <p class="content-image__image-wrapper _image-wrapper">
+            <img src="images/placeholder.png" data-src="@@imageSrc" alt="@@alt"
+              class="content-image__image @@imageAdditionalClasses" width="982" height="500" loading="lazy">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

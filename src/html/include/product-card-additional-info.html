@@ -1,0 +1,70 @@
+<div class="additional-info">
+  <div class="additional-info__left-column">
+    <section class="additional-info__characteristics-and-reviews">
+      <header class="additional-info__header">
+        <nav class="additional-info__navigation">
+          <ol class="additional-info__list">
+            <li class="additional-info__list-item">
+              <a class="additional-info__link _btn _btn--white active" href="#characteristics">Характеристики</a>
+            </li>
+            <li class="additional-info__list-item">
+              <a class="additional-info__link _btn _btn--white" href="#product-card-reviews">Отзывы</a>
+            </li>
+          </ol>
+        </nav>
+      </header>
+      <section id="characteristics" class="characteristics">
+        <span class="characteristics__heading additional-info__heading heading">Характеристики</span>
+        <div class="characteristics__content _custom-content">
+          @@loop('./src/html/inner-blocks/contents.html', '../json/characteristics-content.json')
+        </div>
+      </section>
+      <section id="product-card-reviews" class="product-card-reviews">
+        <span class="product-card-reviews__heading additional-info__heading heading">Отзывы</span>
+        <div class="product-card-reviews__wrapper">
+          @@loop('./src/html/include/reviews-item.html', '../json/product-card-reviews.json')
+        </div>
+        <div class="product-card-reviews__buttons-wrapper">
+          <button class="product-card-reviews__button _btn" data-open-popup="leave-a-review" type="button">Оставить
+            отзыв</button>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div class="additional-info__right-column">
+    <section class="payment-and-delivery" data-toggle-container="">
+      <nav class="payment-and-delivery__navigation" role="tablist">
+        <button class="payment-and-delivery__tab" data-toggle="delivery" type="button" aria-expanded="true"
+          aria-controls="delivery" role="tab">Замер и доставка</button>
+        <button class="payment-and-delivery__tab" data-toggle="payment" type="button" aria-expanded="false"
+          aria-controls="payment" role="tab">Оплата</button>
+      </nav>
+      <div class="payment-and-delivery__content-wrapper">
+        <div id="delivery" class="payment-and-delivery__item active" data-target="delivery" role="tabpanel">
+          <ul class="payment-and-delivery__list">
+            <li class="payment-and-delivery__list-item">Выезд специалиста на замер осуществляется бесплатно (при
+              оформлении заказа) от двух межкомнатных дверей в Минске</li>
+            <li class="_custom-content">
+              <div class="payment-and-delivery__button-wrapper">
+                <button class="payment-and-delivery__btn _btn" data-open-popup="order-a-measurement"
+                  type="button">Вызвать замерщика</button>
+              </div>
+            </li>
+            <li class="payment-and-delivery__list-item">Доставка дверей осуществляется <strong>БЕСПЛАТНО</strong> в
+              Минске и пределах 5 км от МКАД</li>
+          </ul>
+          <a href="#" class="payment-and-delivery__link">Подробнее</a>
+        </div>
+        <div id="payment" class="payment-and-delivery__item" data-target="payment" role="tabpanel">
+          <ul class="payment-and-delivery__list">
+            <li class="payment-and-delivery__list-item">Наличными курьеру во время доставки (только по г. Минску)</li>
+            <li class="payment-and-delivery__list-item">Онлайн на сайте</li>
+            <li class="payment-and-delivery__list-item">Безналичным перечислением в банке или ЕРИП по реквизитам</li>
+            <li class="payment-and-delivery__list-item">Картой или наличными в нашем магазине</li>
+          </ul>
+          <a href="#" class="payment-and-delivery__link">Подробнее</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

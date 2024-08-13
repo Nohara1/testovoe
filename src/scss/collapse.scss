@@ -1,0 +1,120 @@
+.collapse {
+  &._centered {
+    @extend %collapse-centered !optional;
+  }
+
+  // &__heading {}
+  &__items {
+    @include row(0, 20px);
+
+    // %collapse-centered & {
+    //   max-width: 860px;
+    //   margin-left: auto;
+    //   margin-right: auto;
+
+    //   @media ($desktop-max) and ($desktop-min) {
+    //     max-width: 740px;
+    //   }
+    //   @media ($tablet-max) and ($tablet-mid) {
+    //     max-width: 650px;
+    //   }
+    //   @media ($tablet-mad) and ($tablet-min) {
+    //     max-width: 550px;
+    //   }
+    // }
+  }
+  &__item {
+    flex: 1 1 50%;
+    max-width: 50%;
+
+    %collapse-centered & {
+      flex: 1 1 100%;
+      max-width: 100%;
+      // padding-left: 0;
+    }
+
+    @media ($desktop-max) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+  &__tab {
+    width: 100%;
+    color: $primary-color;
+    border: none;
+    display: flex;
+    padding: 20px 2.5rem;
+    position: relative;
+    font-size: 16px;
+    text-align: left;
+    // min-height: 55px;
+    font-weight: 500;
+    line-height: 1.25;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+
+    @media ($desktop-min) {
+      transition: background-color 0.3s;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+    @media ($tablet-mad) {
+      padding: 20px;
+    }
+
+    svg {
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+
+    &[aria-expanded="true"] {
+      color: $black;
+
+      svg {
+        transform: scaleY(-1);
+      }
+    }
+  }
+  &__tabpanel {
+    display: grid;
+    transition: border-color 0.3s, grid-template-rows 0.3s;
+    border-bottom: 1px solid $text-color-lighter;
+    grid-template-rows: 0fr;
+
+    &.active {
+      border-color: $accent;
+      grid-template-rows: 1fr;
+    }
+  }
+  &__content-wrapper {
+    overflow: hidden;
+  }
+  &__content {
+    // border: 1px solid $primary-color;
+    color: $grey;
+    padding: 0 2.5rem 20px;
+
+    table {
+      width: calc(100% + 3rem) !important;
+      margin: 0 -1.5rem;
+      max-width: none;
+
+      &:first-child {
+        margin-top: -1rem;
+      }
+      &:last-child {
+        margin-bottom: -1.5rem;
+      }
+    }
+  }
+  %inner-page > & + %custom-content {
+    margin-top: -3.5rem;
+
+    @media ($tablet-mad) {
+      margin-top: -1.5rem;
+    }
+  }
+}

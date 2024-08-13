@@ -1,0 +1,92 @@
+.product-calculator {
+  @extend %product-calculator !optional;
+
+  &__inner {
+    color: $grey;
+    border: 1px solid $items-border;
+    padding: 30px;
+    border-radius: 5px;
+
+    @media ($mobile-max) {
+      padding: 20px;
+    }
+  }
+  &__heading {
+    color: $grey;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  &__items {
+    @include row(20px, 20px);
+    margin-top: 20px;
+  }
+  &__item {
+    flex: 1 1 0%;
+    min-width: 160px;
+    // max-width: 280px;
+
+    @media ($mobile-max) {
+      max-width: 100%;
+    }
+  }
+  &__area {
+    margin-top: 20px;
+  }
+  &__area-value {
+    color: $black;
+  }
+  &__price-wrapper {
+    color: $grey;
+    font-size: 26px;
+    margin-top: 20px;
+    font-weight: 500;
+    line-height: 1.154;
+
+    @media ($tablet-mad) {
+      font-size: 20px;
+    }
+
+    *:first-child {
+      margin-left: 20px;
+    }
+  }
+  &__price {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.154;
+  }
+  &__old-price {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: line-through;
+
+    ~ * {
+      color: $required-and-error;
+    }
+  }
+  label {
+    display: block;
+  }
+  %form-label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  %form-input,
+  %form-select {
+    color: $black;
+    border: 1px solid grey;
+    padding: 0.5em 1em;
+    background-color: transparent;
+  }
+  %form-select option {
+    font: inherit;
+    background-color: $white;
+  }
+}
+// .area-unit {
+// }
+// .area-value {
+// }

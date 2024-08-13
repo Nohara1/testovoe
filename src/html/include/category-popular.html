@@ -1,0 +1,12 @@
+<nav class="popular">
+  <div class="popular__list">
+    @@if(false){<span class="popular__heading">Популярное:</span>}
+    @@loop('./src/html/include/category-popular-item.html', '@@jsonPath')
+    @@loop('./src/html/include/category-popular-item.html', '@@hiddenJsonPath')
+  </div>
+  <button class="popular__button" type="button" name="popular-collapse-button" data-title="Больше"
+    data-second-title="Меньше">
+    <span class="sr-only">развернуть/свернуть список популярных меток</span>
+    <span class="popular__button-icon"></span>
+  </button>
+</nav>

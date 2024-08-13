@@ -1,0 +1,146 @@
+<article class="product" data-product="">
+  <div class="product__inner">
+    <p class="product__image-wrapper _image-wrapper">
+      <img src="@@imageSrc" srcset="images/placeholder.png" data-srcset="@@imageSrc" alt="@@title"
+        class="product__image" width="410" height="289" data-product-image="">
+      <span class="product__badges" aria-hidden="true">
+        @@if (context.novelty) {
+        <span class="product__badge product__badge_novelty">Новинка</span>
+        }
+        @@if (context.discount) {
+        <span class="product__badge product__badge_discount">Скидка 12%</span>
+        }
+        @@if (context.bestseller) {
+        <span class="product__badge product__badge_bestseller">Хит</span>
+        }
+        @@if (context.measure) {
+        <span class="product__badge product__badge_measure">Замер+Укладка</span>
+        }
+        @@if (context.installment) {
+        <span class="product__badge product__badge_installment">Рассрочка</span>
+        }
+        @@if (context.installation) {
+        <span class="product__badge product__badge_installation">Укладка бесплатно</span>
+        }
+        @@if (context.gift) {
+        <span class="product__badge product__badge_gift">+Подарок</span>
+        }
+      </span>
+    </p>
+    <form method="post" class="product__form">
+      <input type="hidden" name="id" value="@@id">
+      <input type="hidden" name="count" value="1">
+      <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <a href="@@link" class="product__heading heading" data-product-heading="">@@title</a>
+        @@if(true){<div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#comparison" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>}
+        @@include('./src/html/include/availability.html', {
+          in_stock: '@@if(context.in_stock){@@in_stock}',
+          not_available: '@@if(context.not_available){@@not_available}',
+          supplier: '@@if(context.supplier){@@supplier}',
+          on_order: '@@if(context.on_order){@@on_order}'
+        })
+        @@if(context.feature01){
+        <div class="product__characteristics">
+          @@if(context.feature01.key){
+          <p>@@if(context.feature01.key){<span>@@feature01.key</span>}
+            <b><svg width="20" height="20" aria-hidden="true">
+              @@if(feature01.value == "Германия") {
+                <use href="images/icons.svg#german"></use>
+              }
+              @@if(feature01.value == "Турция") {
+                <use href="images/icons.svg#turkiye"></use>
+              }
+              @@if(feature01.value == "Испания") {
+                <use href="images/icons.svg#spain"></use>
+              }
+            </svg>@@if(context.feature01.value){@@feature01.value}</b>
+          </p>
+          }
+          @@if(context.feature02.key){
+          <p>@@if(context.feature02.key){<span>@@feature02.key</span>}
+            <b>@@if(context.feature02.value){@@feature02.value}</b>
+          </p>
+          }
+          @@if(context.feature03.key){
+          <p>@@if(context.feature03.key){<span>@@feature03.key</span>}
+            <b>@@if(context.feature03.value){@@feature03.value}</b>
+          </p>
+          }
+          @@if(context.feature04.key){
+          <p>@@if(context.feature04.key){<span>@@feature04.key</span>}
+            <b>@@if(context.feature04.value){@@feature04.value}</b>
+          </p>
+          }
+          @@if(context.feature05.key){
+          <p>@@if(context.feature05.key){<span>@@feature05.key</span>}
+            <b>@@if(context.feature05.value){@@feature05.value}</b>
+          </p>
+          }
+        </div>
+        }
+        <div class="product__price-wrapper">
+          @@if (discount == true) {
+          <span class="product__price_old">129.00</span>
+          }
+          <span class="product__price" data-product-price="">139.00 BYN</span>
+        </div>
+        @@if(false){<div class="product__installment">Рассрочка от 150 руб/мес</div>}
+      </div>
+      <div class="product__bottom">
+        <button class="product__btn _btn _btn--white" type="button" name="one-click" data-open-popup="checkout">
+          <svg width="20" height="20" aria-hidden="true">
+            <use href="images/icons.svg#phone"></use>
+          </svg>Купить в 1 клик</button>
+        <button class="product__btn _btn" type="submit" name="ms2_action" value="cart/add">
+          <svg width="20" height="20" aria-hidden="true">
+            <use href="images/icons.svg#cart"></use>
+          </svg>В корзину</button>
+        @@if(false){<fieldset class="product__colors">
+          <legend class="sr-only">Цвета</legend>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 1</span>
+            <input type="radio" name="product-color@@id" value="color001" checked hidden>
+            <span class="product__color" style="background-color:#D8B888"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 2</span>
+            <input type="radio" name="product-color@@id" value="color002" hidden>
+            <span class="product__color" style="background-color:#737373"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 3</span>
+            <input type="radio" name="product-color@@id" value="color003" hidden>
+            <span class="product__color" style="background-color:#8E7248"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 4</span>
+            <input type="radio" name="product-color@@id" value="color004" hidden>
+            <span class="product__color" style="background-color:#FFFFFF"></span>
+          </label>
+          <label class="product__color-label active" tabindex="0">
+            <span hidden>цвет номер 5</span>
+            <input type="radio" name="product-color@@id" value="color005" hidden>
+            <span class="product__color" style="background-color:#373737"></span>
+          </label>
+        </fieldset>}
+      </div>
+    </form>
+  </div>
+</article>

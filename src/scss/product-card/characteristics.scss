@@ -1,0 +1,27 @@
+.characteristics {
+  // &__heading {
+  // }
+
+  &__content {
+    max-width: 100%;
+    overflow-x: auto;
+
+    table {
+      max-width: 100%;
+      line-height: 1.5;
+
+      strong {
+        font-size: 14px;
+      }
+    }
+  }
+  // th,
+  // td:first-child {
+  //   padding-left: 3.3%;
+  // }
+  td {
+    text-align: left;
+    //padding-right: 9.2%;
+    padding-right: 10px;
+  }
+}

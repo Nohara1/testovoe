@@ -1,0 +1,9 @@
+<nav class="anchor-navigation">
+  <div class="container">
+    <div class="anchor-navigation__list-wrapper">
+      <ul class="anchor-navigation__list @@if(context.columns){_anl-@@columns}">
+        @@loop('./src/html/include/anchor-navigation-item.html', '@@jsonPath')
+      </ul>
+    </div>
+  </div>
+</nav>

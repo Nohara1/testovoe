@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовое для BP-mobile</title>
+    <meta name="description" content=''>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png?v=2">
+    <link rel="manifest" href="images/favicon/site.webmanifest?v=2">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg?v=2" color="#1b40f0">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico?v=2">
+    <meta name="msapplication-TileColor" content="#1b40f0">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml?v=2">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+    <link media="screen" rel="stylesheet" href="styles/styles.min.css?v=20240813085237">
+    <!-- Удалить (файлы плагинов) -->
+    <link media="screen" rel="stylesheet" href="files/jquery-ui.min.css?v=20240813085237">
+    <link media="screen" rel="stylesheet" href="files/ec-rating.css?v=20240813085237">
+    <script src="scripts/main.js?v=20240813085237" defer></script>
+    <script src="scripts/slider.js?v=20240813085237" defer></script>
+    <script src="scripts/inputmask.js?v=20240813085237" defer></script>
+    <link rel="preload" as="image" href="images/placeholder.png">
+    <!-- Только для главной страницы (заменить на корректные пути) -->
+    <link rel="preload" href="images/banners/slide-01.jpg" as="image" media="(min-width: 768px)">
+    <link rel="preload" href="images/banners/slide-01-mobile.jpg" as="image" media="(max-width: 767.98px)">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js?v=20240813085237" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Удалить (файлы плагинов) -->
+    <script src="files/ec-rating.js?v=20240813085237"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__navigation">
+                <div class="header__item">
+                    <nav class="header-top container">
+                        <div class="header-top__item">
+                            <div class="header-top__connection">
+                                <svg class="header-top__icon" width="16.5" height="10">
+                                    <use href="images/icons.svg#MobileSignal"></use>
+                                </svg>
+                                <p class="header-top__text">Sketch</p>
+                                <svg class="header-top__icon" width="14" height="10">
+                                    <use href="images/icons.svg#Wifi"></use>
+                                </svg>
+                            </div>
+                            <div class="header-top__time-iphone">
+                                <p class="header-top__text">9:41</p>
+                            </div>
+                        </div>
+                        <div class="header-top__item">
+                            <div class="header-top__time">
+                                <p class="header-top__text">9:41 AM</p>
+                            </div>
+                        </div>
+                        <div class="header-top__item">
+                            <div class="header-top__charge">
+                                <svg class="header-top__icon" width="6" height="10">
+                                    <use href="images/icons.svg#Bluetooth"></use>
+                                </svg>
+                                <p class="header-top__text">100%</p>
+                                <svg class="header-top__icon" width="27" height="12">
+                                    <use href="images/icons.svg#Battery"></use>
+                                </svg>
+                            </div>
+                            <div class="header-top__charge-iphone">
+                                <svg class="header-top__icon" width="18" height="11">
+                                    <use href="images/icons.svg#MobileSignal"></use>
+                                </svg>
+                                <svg class="header-top__icon" width="15" height="11">
+                                    <use href="images/icons.svg#Wifi"></use>
+                                </svg>
+                                <svg class="header-top__icon" width="25" height="10">
+                                    <use href="images/icons.svg#Battery"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section class="main-blocks">
+            <div class="container">
+                <div class="main-blocks__items">
+                    <h1 class="cart__heading heading _h2" id="title"></h1>
+                    <div class="main-block">
+                        <div class="main-block__items">
+                            <div class="main-block__item">
+                                <p class="main-block__image-wrapper _image-wrapper">
+                                    <img src="images/content/F1.png" srcset="images/content/F1.png" alt="first-image" width="104" height="138">
+                                </p>
+                                <p class="main-block__text" id="description"></p>
+                            </div>
+                            <div class="main-block__item">
+                                <p class="main-block__image-wrapper _image-wrapper">
+                                    <img src="images/content/F2.png" srcset="images/content/F2.png" alt="second-image" width="104" height="138">
+                                </p>
+                                <p class="main-block__text" id="exclusive-styles"></p>
+                            </div>
+                            <div class="main-block__item">
+                                <p class="main-block__image-wrapper _image-wrapper">
+                                    <img src="images/content/F3.png" srcset="images/content/F3.png" alt="third-image" width="104" height="138">
+                                </p>
+                                <p class="main-block__text" id="magic-avatars"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block__close">
+                        <a class="" href="#">
+                            <svg width="12" height="12" aria-hidden="true">
+                                <use href="images/icons.svg#Cross"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cell">
+            <div class="container">
+                <div class="cell__items">
+                    <div class="cell__item " data-url="https://apple.com">
+                        <div class="cell__access">
+                            <p class="cell__access-tittle" id="yearly-access"></p>
+                            <p class="cell__access-description" id="yearly-price"></p>
+                        </div>
+                        <div class="cell__access">
+                            <p class="cell__access-description">$0.48</p>
+                            <p class="cell__access-description">per week</p>
+                        </div>
+                        <div class="cell__offer">
+                            <p class="cell__offer-decription" id="best-offer"></p>
+                        </div>
+                    </div>
+                    <div class="cell__item" data-url="https://google.com">
+                        <div class="cell__access">
+                            <p class="cell__access-tittle" id="weekly-access"></p>
+                        </div>
+                        <div class="cell__access">
+                            <p class="cell__access-description" id="weekly-price"></p>
+                        </div>
+                    </div>
+                    <button class="cell__button _btn" type="button" id="continue">
+                    </button>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__items">
+                    <div class="footer__item">
+                        <a href="#" class="footer__link" id="terms-of-use">c</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="#" class="footer__link" id="privacy-policy"></a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="#" class="footer__link" id="restore"></a>
+                    </div>
+                    <div class="footer__button">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

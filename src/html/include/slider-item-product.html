@@ -1,0 +1,16 @@
+<div class="custom-slider__slide swiper-slide"
+  data-slide-category="@@if(bestseller){bestseller,}@@if(novelty){novelty,}@@if(discount){discount,}">
+  @@include('./src/html/include/product.html', {
+    'id': '@@id',
+    'link': '@@link',
+    'imageSrc': '@@imageSrc',
+    'title': '@@title',
+    'bestseller': @@bestseller,
+    'novelty': @@novelty,
+    'discount': @@discount,
+    'measure': '@@if(context.measure){@@measure}',
+    'installment': '@@if(context.installment){@@installment}',
+    'installation': '@@if(context.installation){@@installation}',
+    'gift': '@@if(context.gift){@@gift}'
+  })
+</div>

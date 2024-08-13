@@ -1,0 +1,36 @@
+<div class="our-goods__slide swiper-slide"
+  data-slide-category="@@if(bestseller){bestseller,}@@if(novelty){novelty,}@@if(discount){discount,}">
+  @@include('./src/html/include/product.html', {
+  id: '@@id',
+  link: '@@link',
+  imageSrc: '@@imageSrc',
+  title: '@@title',
+  bestseller: @@bestseller,
+  novelty: @@novelty,
+  discount: @@discount,
+  feature01: {
+    key:'@@if(context.feature01.key){@@feature01.key}',
+    value: '@@if(context.feature01.value){@@feature01.value}'
+  },
+  feature02: {
+    key: '@@if(context.feature02.key){@@feature02.key}',
+    value: '@@if(context.feature02.value){@@feature02.value}'
+  },
+  feature03: {
+    key: '@@if(context.feature03.key){@@feature03.key}',
+    value: '@@if(context.feature03.value){@@feature03.value}'
+  },
+  feature04: {
+    key: '@@if(context.feature04.key){@@feature04.key}',
+    value: '@@if(context.feature04.value){@@feature04.value}'
+  },
+  feature05: {
+    key: '@@if(context.feature05.key){@@feature05.key}',
+    value: '@@if(context.feature05.value){@@feature05.value}'
+  },
+  in_stock: '@@if(context.in_stock){@@in_stock}',
+  not_available: '@@if(context.not_available){@@not_available}',
+  supplier: '@@if(context.supplier){@@supplier}',
+  on_order: '@@if(context.on_order){@@on_order}'
+  })
+</div>

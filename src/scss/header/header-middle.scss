@@ -1,0 +1,119 @@
+.header-middle {
+  display: flex;
+  min-height: $header-middle-height;
+  // padding-top: 11px;
+  justify-content: space-between;
+  background-color: $white;
+
+  @media ($desktop-min-xl) {
+    align-items: center;
+  }
+  @media ($desktop-max) {
+    min-height: 100%;
+    padding-top: 30px;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
+
+  &__item {
+    @media ($desktop-min-xl) {
+      & + & {
+        margin-left: 34px;
+      }
+      // &:first-child {
+      //   flex-grow: 0.2;
+      // }
+    }
+    @media ($desktop-max) {
+      &:not(._desktop-only) + & {
+        margin-top: 25px;
+      }
+    }
+    &_grow {
+      flex-grow: 1;
+    }
+  }
+  &__call-request {
+    max-width: 100%;
+
+    @media ($desktop-min-xxl), ($desktop-max) {
+      svg {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+    @media ($desktop-max-xl) and ($desktop-min-xl) {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+
+      &::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        animation: callback 3s linear infinite;
+        box-shadow: 0 0 0 1px $primary-color;
+        border-radius: 5px;
+      }
+
+      svg {
+        margin-right: 0;
+      }
+
+      span {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+
+    // @media ($desktop-max-xl) and ($desktop-min-xl) {
+    //   width: auto;
+    //   max-width: min-content;
+    // }
+    @media ($desktop-max) {
+      width: 100%;
+    }
+  }
+  %search-form {
+    flex-grow: 1;
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  %contacts-link {
+    text-align: right;
+  }
+
+  @media ($desktop-max) {
+    %contacts-label {
+      margin-bottom: 7px;
+    }
+    %contacts-item-item {
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
+}
+
+@keyframes callback {
+  0% {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}

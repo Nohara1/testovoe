@@ -1,0 +1,79 @@
+.feature-buttons {
+  display: flex;
+  color: $dark30;
+  align-items: center;
+
+  @extend %feature-buttons !optional;
+
+  &__item {
+    position: relative;
+
+    @extend %feature-buttons-item !optional;
+
+    & + & {
+      margin-left: 30px;
+    }
+  }
+  &__link {
+    color: inherit;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    padding: 0;
+    flex-shrink: 0;
+    text-decoration: none;
+    background-color: transparent;
+    @extend %flex-center;
+
+    @media ($desktop-min) {
+      // transform: scale(1);
+      transition: color 0.2s;
+
+      &:hover {
+        color: $dark;
+        // transform: scale(1.25);
+      }
+    }
+  }
+  &__number {
+    top: 0;
+    right: 8px;
+    color: $white;
+    padding: 0.3em;
+    overflow: hidden;
+    position: absolute;
+    max-width: 4em;
+    font-size: 10px;
+    min-width: 16px;
+    min-height: 16px;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: 30px;
+    text-overflow: ellipsis;
+    background-color: $red;
+    transform: translateX(50%);
+    @extend %header-bottom-number !optional;
+  }
+  // &__comparison {
+  //   & %header-bottom-number {
+  //     right: 1px;
+  //   }
+  // }
+  // &__wishlist {
+  //   & %header-bottom-number {
+  //     right: 2px;
+  //   }
+  // }
+  &__cart {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+  &__search {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+}
