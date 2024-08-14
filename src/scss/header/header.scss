@@ -15,9 +15,9 @@
   @media ($desktop-min-xl) {
     transform: translateY(0);
   }
-  @media ($desktop-max) {
-    position: fixed;
-  }
+  // @media ($desktop-max) {
+  //   position: fixed;
+  // }
   %scrolled & {
     @extend %header-scrolled !optional;
 

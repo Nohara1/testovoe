@@ -9180,10 +9180,6 @@ body .ec-stars span.rating-5 {
     width: 140px;
   }
 
-  .header {
-    position: fixed;
-  }
-
   .header__navigation ._hover-to-open__target {
     top: 0;
     left: 0;
