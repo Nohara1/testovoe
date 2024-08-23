@@ -119,7 +119,7 @@ const translations = {
       }
   };
   const queryParams = new URLSearchParams(window.location.search);
-            let lang = queryParams.get('lang') || navigator.language.substring(0, 2);
+            let lang = queryParams.get('lang') || navigator.language.substring(0, 2).toLowerCase();
 
             if (!translations[lang]) {
                 lang = 'en';
