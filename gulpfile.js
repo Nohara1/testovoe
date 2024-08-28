@@ -1,7 +1,6 @@
 import gulp from "gulp";
 import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugins.js";
-import rename from "gulp-rename";
 import jsonTransform from "gulp-json-transform";
 
 global.app = {
@@ -28,10 +27,6 @@ function translations() {
     .pipe(jsonTransform(function(data) {
         return data; 
     }))
-    .pipe(rename(function(path) {
-        path.basename = path.basename.toLowerCase();  
-        path.extname = ".js"; 
-    }))
     .pipe(gulp.dest('./build/translations'));  
 }
 
@@ -46,7 +41,7 @@ function watcher() {
 const mainTasks = gulp.parallel(copy, html, scss, scripts, images);
 
 const dev = gulp.series(reset, mainTasks, translations , gulp.parallel(watcher, server));
-const build = gulp.series(reset, mainTasks, imagesWebp, killTask);
+const build = gulp.series(reset, mainTasks, translations , imagesWebp, killTask);
 
 export { dev };
 export { build };
