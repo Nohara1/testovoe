@@ -29,6 +29,7 @@
     "gulp-html-img-wrapper": "^4.0.1",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^9.0.0",
+    "gulp-json-transform": "^0.5.0",
     "gulp-newer": "^1.4.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",

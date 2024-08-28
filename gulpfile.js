@@ -1,6 +1,8 @@
 import gulp from "gulp";
 import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugins.js";
+import rename from "gulp-rename";
+import jsonTransform from "gulp-json-transform";
 
 global.app = {
   path: path,
@@ -21,6 +23,18 @@ import { fonts } from "./gulp/tasks/fonts.js";
 import { svgSprite } from "./gulp/tasks/svgSprite.js";
 import { killTask } from "./gulp/tasks/kill-task.js";
 
+function translations() {
+  return gulp.src('./src/json/*.json') 
+    .pipe(jsonTransform(function(data) {
+        return data; 
+    }))
+    .pipe(rename(function(path) {
+        path.basename = path.basename.toLowerCase();  
+        path.extname = ".js"; 
+    }))
+    .pipe(gulp.dest('./build/translations'));  
+}
+
 function watcher() {
   gulp.watch(path.watch.files, copy);
   gulp.watch(path.watch.html, html);
@@ -31,7 +45,7 @@ function watcher() {
 
 const mainTasks = gulp.parallel(copy, html, scss, scripts, images);
 
-const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const dev = gulp.series(reset, mainTasks, translations , gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks, imagesWebp, killTask);
 
 export { dev };
@@ -41,3 +55,4 @@ gulp.task("dev", dev);
 gulp.task("build", build);
 gulp.task("fontsGenerator", fonts);
 gulp.task("spriteGenerator", svgSprite);
+gulp.task("translations", translations);
